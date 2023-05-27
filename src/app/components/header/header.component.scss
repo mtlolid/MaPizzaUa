@@ -1,0 +1,136 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    margin: 0 auto;
+    width: 1200px;
+    height: 65px;
+    @include flex(row, space-between, center, nowrap, 0);
+}
+
+.wrap-top {
+
+    .info {
+        height: 65px;
+        font-size: .9rem;
+        @include flex(column, center, flex-start, nowrap, 0);
+    }
+
+    .favourite {
+        @include size(30px, 28px);
+        position: relative;
+
+        img {
+            height: 100%;
+        }
+
+        .favouriteCount {
+            @include size(15px, 15px);
+            @include flex(column, center, center, nowrap, 0);
+            position: absolute;
+            right: -5px;
+            top: -3px;
+            border-radius: 50%;
+            background-color: $secondary-color;
+            color: white;
+            font-size: .7rem;
+        }
+    }
+
+    p {
+        @include flex(row, center, center, nowrap, 0);
+    }
+
+    button {
+        @include flex(row, center, center, nowrap, 0);
+        background-color: $secondary-color;
+        border-radius: 10px;
+        margin-left: 10px;
+        border: none;
+        padding: 10px;
+        color: white;
+        transition-duration: 500ms;
+
+        &:hover {
+            background-color: $text-green;
+        }
+
+
+        img {
+            width: 20px;
+        }
+    }
+}
+
+.wrap-bottom {
+    @include rounded;
+    position: sticky;
+    height: 80px;
+    background-color: $main-color;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .logo {
+        height: 55px;
+    }
+
+    .categories {
+        @include flex(row, space-between, center, nowrap, 0);
+
+        .category {
+            min-width: 200px;
+            text-align: center;
+        }
+    }
+
+    .order {
+        @include flex(row, flex-start, center, nowrap, 0);
+        min-width: 100px;
+
+        .basket {
+            position: relative;
+
+            img {
+                height: 50px;
+            }
+
+            .basket-count {
+                @include size(15px, 15px);
+                @include flex(column, center, center, nowrap, 0);
+                top: 5px;
+                right: 10px;
+                position: absolute;
+                border-radius: 50%;
+                background-color: $secondary-color;
+                color: white;
+                font-size: .7rem;
+            }
+        }
+    }
+
+}
+
+.hover {
+    transition-duration: 500ms;
+
+    &:hover {
+        color: $text-green;
+    }
+}
+
+.green {
+    color: $text-green;
+}
+
+.red {
+    color: $secondary-color;
+}
+
+.long {
+    margin-left: 2%;
+    margin-right: 2%;
+}

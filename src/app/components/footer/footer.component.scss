@@ -1,0 +1,180 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    @include size(1200px, 400px);
+    @include rounded;
+    padding: 30px 80px;
+    position: relative;
+
+    margin: 30px auto;
+    background-color: $main-color;
+
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    justify-items: left;
+    align-items: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 999;
+        width: 100px;
+        height: 100px;
+        top: -40px;
+        left: -40px;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fdecor-img-1.svg?alt=media&token=f3e654ab-354d-4af0-9ce1-e5d82088df4a");
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: 999;
+        width: 100px;
+        height: 100px;
+        bottom: 40px;
+        right: -30px;
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fdecor-img-2.svg?alt=media&token=5a924662-e523-4e41-ab79-aca020b0b65f");
+    }
+
+    .logo {
+        width: 200px;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+
+    .info {
+        @include flex(column, center, flex-start, nowrap, 0);
+        height: 65px;
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+    }
+
+    .social {
+        display: grid;
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        width: 100%;
+        justify-items: center;
+        align-items: center;
+
+        div {
+            @include size(35px, 35px);
+            @include flex(row, center, center, nowrap, 20px);
+            background-color: $secondary-color;
+            border-radius: 50%;
+
+            &:hover {
+                animation: sizing 300ms linear 0s 1 normal forwards;
+
+                @keyframes sizing {
+                    0% {
+                        background-color: $secondary-color;
+                    }
+
+                    50% {
+                        transform: scale(0.6)
+                    }
+
+                    100% {
+                        transform: scale(1);
+                        background-color: $text-green;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .app {
+        div {
+            @include flex(row, center, center, nowrap, 10px);
+
+            margin-top: 10px;
+
+            img {
+                width: 120px;
+            }
+        }
+    }
+
+    .menu {
+        list-style-type: none;
+        grid-row: 1 / 5;
+        grid-column: 2 / 3;
+        align-self: flex-start;
+
+        li {
+            margin-bottom: 20px;
+        }
+    }
+
+    .about {
+        list-style-type: none;
+        grid-row: 1 / 5;
+        grid-column: 3 / 4;
+        align-self: flex-start;
+
+        li {
+            margin-bottom: 20px;
+        }
+    }
+
+    .location {
+        list-style-type: none;
+        grid-row: 1 / 5;
+        grid-column: 4 / 5;
+        align-self: flex-start;
+
+        li {
+            margin-bottom: 20px;
+        }
+    }
+
+}
+
+.under {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+
+    .cards{
+        @include flex(row, center, center, nowrap, 20px);
+    }
+}
+
+.green {
+    color: $text-green;
+}
+
+.red {
+    color: $secondary-color;
+}
+
+.gray {
+    color: $text-gray;
+}
+
+.hover {
+    transition-duration: 500ms;
+
+    &:hover {
+        color: $text-green;
+    }
+}
