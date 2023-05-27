@@ -1,0 +1,128 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    width: 1200px;
+    margin: 0 auto;
+
+    .image {
+        @include size(100%, 350px);
+        @include flex(row, center, flex-end, nowrap, 0);
+        @include rounded;
+
+        box-shadow: inset 0px -100px 187px 11px rgba(0, 0, 0, 0.7);
+        padding-bottom: 20px;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fjob-1.png.webp?alt=media&token=77b7a075-5db0-4149-adf2-2ef7f7077ecc');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        b {
+            color: white;
+            font-size: 2rem;
+        }
+    }
+
+    h2 {
+        margin: 50px auto;
+        text-align: center;
+        width: 25%;
+        color: $text-main;
+        font-size: 2rem;
+        position: relative;
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            @include size(80px, 50px);
+            top: -30px;
+            left: -35px;
+            background-repeat: no-repeat;
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ftitle-decor.svg?alt=media&token=bf67d868-844c-49af-8ae3-4b9fc4e69e17');
+        }
+    }
+
+    .info {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 30px;
+        grid-row-gap: 0px;
+        align-items: center;
+        justify-items: center;
+
+        margin-bottom: 100px;
+
+        .card{
+            @include size(90%, 105px);
+            @include flex(row, center, center, nowrap, 0);
+            @include rounded;
+            padding: 0 10px;
+            border: 1px solid $border-gray;
+            box-shadow: 19px 20px 0px 0px $main-color;
+
+            b{
+                color: $text-main;
+                margin-left: 10px;
+                
+            }
+        }
+    }
+
+    .scuter{
+        width: 50%;
+        margin-bottom: 50px;
+
+        .img{
+            @include rounded;
+            margin-bottom: 10px;
+            height: 400px;
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fskuter-vakansiyi-737x492.jpg?alt=media&token=88082027-74c3-4d0f-a40d-e406cd08e69e');
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            transition-duration: .8s;
+
+            &:hover{
+                background-size: 120%;
+            }
+        }
+
+        b{
+            color: $text-main;
+        }
+
+        p{
+            color: $text-gray;
+            margin-top: 10px;
+        }
+    }
+
+    .bottom-info{
+
+        .card{
+            @include flex(column, space-between, center, nowrap, 0);
+            height: auto;
+            padding: 0;
+            padding-bottom: 20px;
+
+            .img{
+                @include rounded;
+                @include size(100%, 150px); 
+
+                background-size: cover;
+                background-repeat: no-repeat;
+                
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                margin-bottom: 20px;
+
+            }
+        }
+    }
+
+}

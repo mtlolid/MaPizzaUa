@@ -5,13 +5,14 @@
         <p>пт-сб 09:30 - 22:00</p>
     </div>
 
-    <a class="hover">Про нас</a>
-    <a class="hover">Доставка та оплата</a>
-    <a class="hover">Акції</a>
-    <a class="hover">Контакти</a>
-    <a class="hover">Вакансії</a>
-    <a class="hover">Новини</a>
-    <a class="hover">FAQ</a>
+    <a [routerLink]="[ '/about-us']" class="hover">Про нас</a>
+    <a [routerLink]="[ '/dostavka']" class="hover">Доставка та оплата</a>
+    <a [routerLink]="[ '/actions']" class="hover">Акції</a>
+    <a [routerLink]="[ '/contacts']" class="hover">Контакти</a>
+    <a [routerLink]="[ '/career']" class="hover">Вакансії</a>
+    <a [routerLink]="[ '/news']" class="hover">Новини</a>
+    <a [routerLink]="[ '/faq']" class="hover">FAQ</a>
+
     <p class="long">
         <img
             src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fi-header-top.svg?alt=media&token=364990b1-2b99-42f0-984c-019a3b902a03">
@@ -25,7 +26,7 @@
         </div>
     </div>
 
-    <button>
+    <button (click)="openDialog('100ms', '500ms')">
         <img
             src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ficons8-user-64.png?alt=media&token=f9a410b9-6957-41dd-83a7-f99849a42516">
         <span>Вхід</span>

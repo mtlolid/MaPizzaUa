@@ -1,0 +1,54 @@
+<div class="wrap">
+
+    <button (click)="closeDialog()">✖</button>
+    <div>
+        <h2>{{ registerCheck ? 'Реєстрація' : 'Вхід' }}</h2>
+    </div>
+
+    <ng-container *ngIf="!registerCheck">
+        <form>
+            <input type="email" placeholder="*Введіть емейл">
+            <input type="text" placeholder="*Введіть пароль">
+
+            <input type="button" value="Увійти ➤">
+        </form>
+
+        <div class="register">
+            <p>Ще не зареєстровані? <a (click)="registerCheckToggle()">Зареєструватися</a></p>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="registerCheck">
+        <form>
+            <div class="two">
+                <input type="email" placeholder="*Ваше ім'я">
+                <input type="text" placeholder="*Ваше прізвище">
+            </div>
+            <div class="date-wrap">
+                <input type="date">
+                <p>Якщо це поле не буде заповнено, то ви не зможете отримувати додаткові бонуси до Дня Вашого народження
+                </p>
+            </div>
+            <input type="email" placeholder="*Введіть емейл">
+            <input type="text" placeholder="*Введіть телефон">
+            <input type="text" placeholder="*Пароль">
+            <input type="text" placeholder="*Повторіть пароль">
+
+            <div class="checkbox-wrap">
+                <input type="checkbox">
+                <p>Я погоджуюсь з <a (click)="closeDialog()" [routerLink]="[ '/privacy-policy' ]">Правилами користування</a></p>
+            </div>
+
+            <input type="button" value="Зареєструватись ➤">
+        </form>
+
+        <div class="register">
+            <p>Вже зареєстровані? <a (click)="registerCheckToggle()">Увійти</a></p>
+        </div>
+    </ng-container>
+
+
+
+
+
+</div>

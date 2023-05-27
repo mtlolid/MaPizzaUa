@@ -88,6 +88,7 @@
                     100% {
                         transform: scale(1);
                         background-color: $text-green;
+                        cursor: pointer;
                     }
                 }
             }
@@ -126,6 +127,10 @@
 
         li {
             margin-bottom: 20px;
+
+            a {
+                text-decoration: none;
+            }
         }
     }
 
@@ -145,6 +150,7 @@
 .under {
     width: 1200px;
     margin: 0 auto;
+    padding-bottom: 30px;
     text-align: center;
 
     display: grid;
@@ -154,7 +160,23 @@
     grid-row-gap: 0px;
     align-items: center;
 
-    .cards{
+    p {
+        a {
+            text-decoration: none;
+            color: $text-gray;
+
+            transition-duration: 500ms;
+
+            &:hover {
+                color: $text-green;
+                cursor: pointer;
+            }
+        }
+
+
+    }
+
+    .cards {
         @include flex(row, center, center, nowrap, 20px);
     }
 }
@@ -176,5 +198,6 @@
 
     &:hover {
         color: $text-green;
+        cursor: pointer;
     }
 }

@@ -1,0 +1,67 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+
+.wrap {
+    width: 900px;
+    margin: 50px auto;
+
+    font-size: 1.3rem;
+    color: $text-gray;
+
+    h2 {
+        margin: 40px auto;
+        width: 60%;
+        text-align: center;
+        color: $text-main;
+        font-size: 2rem;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            @include size(80px, 50px);
+            top: -30px;
+            left: -25px;
+            background-repeat: no-repeat;
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ftitle-decor.svg?alt=media&token=bf67d868-844c-49af-8ae3-4b9fc4e69e17');
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin-bottom: 40px;
+
+        li {
+            margin-left: 40px;
+
+            &::before {
+                content: "\2022";
+                color: red;
+                font-weight: bold;
+                display: inline-block;
+                font-size: 2rem;
+                width: 1em;
+                margin-left: -1em;
+            }
+
+        }
+
+    }
+
+    strong {
+        color: $text-main;
+    }
+
+    a {
+        color: $secondary-color;
+    }
+
+    p {
+        margin-bottom: 30px;
+    }
+
+}

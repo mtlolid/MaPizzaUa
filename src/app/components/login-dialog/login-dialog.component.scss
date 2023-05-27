@@ -1,0 +1,137 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    padding: 40px;
+    position: relative;
+
+
+    button {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+
+        font-size: 1.5rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    div {
+        @include flex(column, center, center, nowrap, 0);
+
+        h2 {
+            margin: 0 auto;
+            text-align: center;
+            color: $text-main;
+            font-size: 1.5rem;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                @include size(40px, 40px);
+                top: -15px;
+                left: -30px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ftitle-decor.svg?alt=media&token=bf67d868-844c-49af-8ae3-4b9fc4e69e17');
+            }
+        }
+    }
+
+
+
+    form {
+        @include flex(column, center, center, nowrap, 0);
+        width: 95%;
+        margin: 15px auto;
+
+        .two {
+            @include flex(row, space-between, center, nowrap, 10px);
+            width: 100%;
+
+            input {
+                width: 50%;
+            }
+        }
+
+        .date-wrap {
+
+            input {
+                margin-bottom: 5px;
+            }
+
+            p {
+                font-size: .8rem;
+                color: $text-gray;
+                margin-bottom: 10px;
+
+            }
+        }
+
+        input {
+            @include size(100%, 50px);
+            border: 1px solid $border-gray;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 10px;
+        }
+
+        input[type="button"] {
+            margin-top: 10px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+            background-color: $secondary-color;
+        }
+
+        .checkbox-wrap {
+            @include flex(row, flex-start, center, nowrap, 0);
+            width: 100%;
+
+            input{
+                width: 20px;
+                border: 1px solid $border-gray;
+                margin: 0;
+                margin-right: 10px;
+            }
+
+            p{
+                font-size: .8rem;
+
+                a{
+                    text-decoration: none;
+                    color: $secondary-color;
+                }
+            }
+        }
+
+    }
+
+    .register {
+        @include flex(column, center, center, nowrap, 0);
+
+        a {
+            color: $secondary-color;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+
+
+
+}

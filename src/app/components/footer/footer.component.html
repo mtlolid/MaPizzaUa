@@ -31,13 +31,13 @@
 
     <ul class="about">
         <li><b>Про компанію:</b></li>
-        <li><a class="hover gray">Про нас</a></li>
-        <li><a class="hover gray">Доставка та оплата</a></li>
-        <li><a class="hover gray">Акції</a></li>
-        <li><a class="hover gray">Контакти</a></li>
-        <li><a class="hover gray">Вакансії</a></li>
-        <li><a class="hover gray">Новини</a></li>
-        <li><a class="hover gray">FAQ</a></li>
+        <li><a [routerLink]="[ '/about-us']" class="hover gray">Про нас</a></li>
+        <li><a [routerLink]="[ '/dostavka']" class="hover gray">Доставка та оплата</a></li>
+        <li><a [routerLink]="[ '/actions']" class="hover gray">Акції</a></li>
+        <li><a [routerLink]="[ '/contacts']" class="hover gray">Контакти</a></li>
+        <li><a [routerLink]="[ '/career']" class="hover gray">Вакансії</a></li>
+        <li><a [routerLink]="[ '/news']" class="hover gray">Новини</a></li>
+        <li><a [routerLink]="[ '/faq']" class="hover gray">FAQ</a></li>
     </ul>
 
     <ul class="location">
@@ -55,8 +55,8 @@
 
 <div class="under">
     <p class="gray">©2023 MA Pizza Всі права захищено</p>
-    <p class="hover gray"><a>Політика конфеденційності</a></p>
-    <p class="hover gray"><a>Оферта</a></p>
+    <p class="gray"><a [routerLink]="[ '/privacy-policy']">Політика конфеденційності</a></p>
+    <p class="gray"><a [routerLink]="[ '/dogovir-publichnoyi-oferty']">Оферта</a></p>
     <div class="cards">
         <img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fvisa-card.svg?alt=media&token=3dd93adf-fd0c-4977-942d-72b93867550a">
         <img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fmaster-card.svg?alt=media&token=26b75f28-c025-4152-8e7d-6a81829a5571">

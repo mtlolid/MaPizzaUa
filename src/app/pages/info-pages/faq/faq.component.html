@@ -1,0 +1,50 @@
+<div class="wrap">
+    <h2>FAQ</h2>
+
+    <div class="bottom">
+        <div class="left">
+
+            <cdk-accordion class="example-accordion">
+                <cdk-accordion-item *ngFor="let item of items; let index = index;" #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0" [attr.id]="'accordion-header-' + index" [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + index">
+                    <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                        {{ item.header }}
+                        <span class="example-accordion-item-description">
+                            {{ accordionItem.expanded ? '▲' : '▼' }}
+                        </span>
+                    </div>
+                    <div class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + index" [attr.aria-labelledby]="'accordion-header-' + index">
+                        {{item.main}}
+                    </div>
+                </cdk-accordion-item>
+            </cdk-accordion>
+
+        </div>
+
+        <div class="right">
+
+            <form>
+                <h2>Зв’язатись з нами</h2>
+    
+                <input type="text" placeholder="*Ім'я">
+                <input type="text" placeholder="*Телефон">
+                <input type="text" placeholder="*Email">
+                <textarea placeholder="Роскажіть трішки про себе..." cols="30" rows="10"></textarea>
+                <div class="bottom">
+                    <div>
+                        <label for="file">
+                            Прикріпити файл
+                            <p>до 3 Мб | pdf / doc / xls</p>
+                        </label>
+                        <input id="file" type="file">
+    
+                    </div>
+                    <button>
+                        <span>НАДІСЛАТИ ➤</span>
+                    </button>
+                </div>
+            </form>
+    
+        </div>
+    </div>
+
+</div>

@@ -19,6 +19,17 @@
         @include flex(column, center, flex-start, nowrap, 0);
     }
 
+    a{
+        text-decoration: none;
+        color: $text-main;
+        transition-duration: 500ms;
+
+        &:hover {
+            color: $text-green;
+            cursor: pointer;
+        }
+    }
+
     .favourite {
         @include size(30px, 28px);
         position: relative;
@@ -56,6 +67,7 @@
 
         &:hover {
             background-color: $text-green;
+            cursor: pointer;
         }
 
 
@@ -68,11 +80,14 @@
 .wrap-bottom {
     @include rounded;
     position: sticky;
+    top: 0;
+    z-index: 999;
     height: 80px;
     background-color: $main-color;
     border-radius: 20px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 10px;   
+    margin-bottom: 30px;
 
     .logo {
         height: 55px;
@@ -112,14 +127,6 @@
         }
     }
 
-}
-
-.hover {
-    transition-duration: 500ms;
-
-    &:hover {
-        color: $text-green;
-    }
 }
 
 .green {
