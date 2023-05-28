@@ -1,0 +1,7 @@
+<div class="wrap">
+    <div class="photo" [ngStyle]="{'background-image': 'url(' + currentAction['file'] + ')'}">
+        <p>{{ currentAction['header'] }}</p>
+    </div>
+
+    <div class="text" [innerHTML]="currentAction['text']" ></div>
+</div>

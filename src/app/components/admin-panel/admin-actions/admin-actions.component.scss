@@ -1,0 +1,164 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    @include flex(column, flex-start, flex-start, nowrap, 0);
+    width: 100%;
+    padding: 40px 0;
+
+    .add {
+        @include size(175px, 55px);
+        @include rounded;
+        border: none;
+        background-color: $secondary-color;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 30px;
+
+        transition-duration: 500ms;
+
+        &:hover {
+            background-color: $text-green;
+            cursor: pointer;
+        }
+
+    }
+
+    .actionForm {
+        @include flex(column, flex-start, flex-start, nowrap, 0);
+        width: 80%;
+
+        .top {
+            width: 100%;
+
+            input,
+            textarea {
+                @include size(100%, 55px);
+                border-radius: 8px;
+                padding: 0 10px;
+                border: 1px solid $border-gray;
+                margin-bottom: 10px;
+            }
+
+            textarea {
+                height: 110px;
+                resize: none;
+                padding-top: 10px;
+            }
+
+        }
+
+        .bottom {
+            @include size(100%, 55px);
+            @include flex(row, space-between, center, nowrap, 0);
+
+            label {
+                color: $secondary-color;
+                transition-duration: 500ms;
+                position: relative;
+                margin-left: 35px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 5px;
+                    left: -32px;
+                    width: 30px;
+                    height: 30px;
+                    background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2F266074.png?alt=media&token=3ef86eb5-764e-4701-b5ca-014390e1dce9');
+                    background-size: 80%;
+                    background-repeat: no-repeat;
+                }
+
+
+                p {
+                    font-size: .7rem;
+                    color: $text-gray;
+                    margin-left: 35px;
+                }
+
+                &:hover {
+                    color: $text-green;
+                    cursor: pointer;
+                }
+            }
+
+            input {
+                display: none;
+            }
+
+            button {
+                @include size(175px, 55px);
+                @include rounded;
+                border: none;
+                background-color: $secondary-color;
+                color: white;
+                font-weight: bold;
+
+                transition-duration: 500ms;
+
+                &:hover {
+                    background-color: $text-green;
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+    }
+
+    table {
+        width: 100%;
+        margin: 20px 0;
+
+        div {
+            @include flex(row, space-between, center, nowrap, 0);
+            border-bottom: 1px solid $border-gray;
+            width: 100%;
+
+            th,
+            td {
+                @include flex(column, center, flex-start, nowrap, 0);
+                width: 25%;
+                min-height: 70px;
+                max-height: 400px;
+                padding: 10px 10px;
+                text-align: start;
+
+                img{
+                    width: 90%;
+                }
+
+                &:nth-of-type(3) {
+                    width: 40%;
+                    p{
+                        overflow: auto;
+                    }
+                }
+
+                &:last-of-type {
+                    text-align: end;
+                    width: 10%;
+                }
+            }
+
+            td {
+                &:last-of-type {
+                    
+                    p {
+                        color: $secondary-color;
+
+                        &:hover {
+                            color: $text-green;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,35 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+    .router-links{
+
+        @include flex(row, space-between, center, nowrap, 20px);
+        width: 100%;
+
+        input{
+            @include rounded;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background-color: $main-color;
+            border: none;
+            border-bottom: 2px solid $border-gray;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: $text-main;
+            height: 50px;
+            width: 20%;
+            transition-duration: 200ms;
+
+            &:hover{
+                cursor: pointer;
+                border-width: 3px;
+            }
+        }
+    }
+}

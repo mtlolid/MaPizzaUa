@@ -18,9 +18,31 @@ import { PrivacyPolicyComponent } from './pages/info-pages/privacy-policy/privac
 import { DogovirPublichnoyiOfertyComponent } from './pages/info-pages/dogovir-publichnoyi-oferty/dogovir-publichnoyi-oferty.component';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { AdminActionsComponent } from './components/admin-panel/admin-actions/admin-actions.component';
+import { AdminCategoriesComponent } from './components/admin-panel/admin-categories/admin-categories.component';
+import { AdminNewsComponent } from './components/admin-panel/admin-news/admin-news.component';
+import { AdminProductsComponent } from './components/admin-panel/admin-products/admin-products.component';
+import { AdminFeedbackComponent } from './components/admin-panel/admin-feedback/admin-feedback.component';
+import { ActionInfoComponent } from './pages/info-pages/actions/action-info/action-info.component';
+
 // ---- Потім в шаред модуль
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatDialogModule} from '@angular/material/dialog';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MainComponent } from './pages/main-pages/main/main.component';
+import { PizzaComponent } from './pages/main-pages/pizza/pizza.component';
+import { SaladsComponent } from './pages/main-pages/salads/salads.component';
+import { DessertsComponent } from './pages/main-pages/desserts/desserts.component';
+import { DrinksComponent } from './pages/main-pages/drinks/drinks.component';
+import { NewsInfoComponent } from './pages/info-pages/news/news-info/news-info.component';
+
 
 
 
@@ -39,14 +61,32 @@ import {MatDialogModule} from '@angular/material/dialog';
     VacancyComponent,
     PrivacyPolicyComponent,
     DogovirPublichnoyiOfertyComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    AdminPanelComponent,
+    AdminActionsComponent,
+    AdminCategoriesComponent,
+    AdminNewsComponent,
+    AdminProductsComponent,
+    AdminFeedbackComponent,
+    ActionInfoComponent,
+    MainComponent,
+    PizzaComponent,
+    SaladsComponent,
+    DessertsComponent,
+    DrinksComponent,
+    NewsInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CdkAccordionModule,
-    MatDialogModule
+    MatDialogModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

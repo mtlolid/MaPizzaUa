@@ -1,0 +1,68 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+
+.wrap{
+    width: 70%;
+    margin: 0px auto;
+    
+    .action{
+        @include size(100%, 300px);
+        @include flex(row, space-between, center, nowrap, 5%);
+
+        &:nth-of-type(even) {
+            @include flex(row-reverse, space-between, center, nowrap, 5%);
+
+        }
+
+        margin-bottom: 40px;
+
+        .img{
+            @include size(50%, 100%);
+            @include rounded;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 0;
+            transition-duration: 500ms;
+
+            &:hover{
+                transform: scale(1.01);
+                cursor: pointer;
+            }
+        }
+
+        .text{
+            @include size(50%, 100%);
+            @include flex(column, space-between, flex-start, nowrap, 2%);  
+            padding: 40px 0;
+
+            h2{
+                color: $text-main;
+                font-size: 1.8rem;
+            }
+            
+            div{
+                color: $text-gray;
+            }
+
+            a{
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $secondary-color;
+            }
+   
+        }
+    }
+}
+
+.hover{
+    transition-duration: 400ms;
+
+    &:hover{
+        color: $text-green !important;
+        cursor: pointer;
+    }
+}

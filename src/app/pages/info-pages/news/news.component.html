@@ -1,1 +1,13 @@
-<p>news works!</p>
+<div class="wrap">
+    <div class="action" *ngFor="let news of newsArray">
+        <div [routerLink]="[ '/news', news.id ]" [ngStyle]="{'background-image': 'url(' + news.file + ')'} "
+            class="img"></div>
+        <div class="text">
+            <h2 class="hover" [routerLink]="[ '/news', news.id ]">{{ news.header }}</h2>
+            <div class="text-wrap">
+                <div [innerHTML]="news.text | slice:0:247"></div><span>...</span>
+            </div>
+            <a class="hover" [routerLink]="[ '/news', news.id ]">Дізнатися більше ➤</a>
+        </div>
+    </div>
+</div>

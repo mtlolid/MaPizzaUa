@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-admin-categories',
+  templateUrl: './admin-categories.component.html',
+  styleUrls: ['./admin-categories.component.scss']
+})
+export class AdminCategoriesComponent {
+
+  public addCheck = false;
+
+  addCheckToggle(): void{
+    this.addCheck = !this.addCheck;
+  }
+
+}

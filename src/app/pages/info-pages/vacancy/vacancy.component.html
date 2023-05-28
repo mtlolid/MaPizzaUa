@@ -29,26 +29,29 @@
     </div>
     <div class="right">
 
-        <form>
+        <form [formGroup]="vacancyForm">
             <h2>Не знайшли свою вакансію?</h2>
 
-            <input type="text" placeholder="*Ім'я">
-            <input type="text" placeholder="*Телефон">
-            <input type="text" placeholder="*Email">
-            <textarea placeholder="Роскажіть щось про себе..." cols="30" rows="10"></textarea>
+            <input formControlName = "name" type="text" placeholder="*Ім'я">
+            <input formControlName = "phone" type="text" placeholder="*Телефон">
+            <input formControlName = "email" type="text" placeholder="*Email">
+            <textarea formControlName = "about" placeholder="Роскажіть щось про себе..." cols="30" rows="10"></textarea>
+
             <div class="bottom">
                 <div>
                     <label for="file">
-                        Прикріпити файл
+                        {{ !fileUploaded ? 'Прикріпити файл' : 'Файл прикріплено' }}
                         <p>до 3 Мб | pdf / doc / xls</p>
                     </label>
-                    <input id="file" type="file">
+                    <input (change)="upload($event)" formControlName = "file" id="file" type="file">
+                    <input type="text" formControlName = "fileHiden">
 
                 </div>
-                <button>
-                    <span>НАДІСЛАТИ ➤</span>
+                <button (click)="createVacancy()" [disabled] = "vacancyForm.invalid" >
+                    <span>{{ !vacancyPosted ? 'НАДІСЛАТИ ➤' : 'НАДІСЛАНО' }}</span>
                 </button>
             </div>
+            
         </form>
 
     </div>

@@ -1,0 +1,37 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+
+    .photo{
+        @include size(100%, 400px);
+        @include rounded;
+        @include flex(row, center, flex-end, nowrap, 0);
+
+        background-size: cover;
+        background-position: center;
+        box-shadow: inset 0px -91px 100px 50px rgba(0, 0, 0, 0.82);
+
+        p{
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+    }
+
+    .text{
+        color: $text-gray;
+        font-weight: 500;
+        font-size: 1.2rem;
+        width: 80%;
+        margin: 40px auto;            
+        line-height: 3rem;
+
+    }
+}

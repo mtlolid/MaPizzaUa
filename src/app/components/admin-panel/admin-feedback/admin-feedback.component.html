@@ -1,0 +1,58 @@
+<div class="wrap">
+
+    <table>
+
+        <div>
+            <th>
+                <p>Ім'я</p>
+            </th>
+            <th>
+                <p>Телефон</p>
+            </th>
+            <th>
+                <p>Емейл</p>
+            </th>
+
+            <th>
+                <p>Файл</p>
+            </th>
+
+            <th>
+                <p>Опис</p>
+            </th>
+
+            <th>
+                <p>Дії</p>
+            </th>
+
+        </div>
+
+        <div *ngFor="let feedback of feedbackArray">
+            <td>
+                <p>{{ feedback.name }}</p>
+            </td>
+          
+            <td>
+                <p>{{ feedback.phone }}</p>
+            </td>
+
+            <td>
+                <p>{{ feedback.email }}</p>
+            </td>
+
+            <td>
+                <a *ngIf="feedback.file != null" [href]="feedback.file">Файл</a>
+            </td>
+
+            <td>
+                <p>{{ feedback.about  }}</p>
+            </td>
+        
+            <td class="buttons">
+                <p (click)="deleteVacancy(feedback.id)">Видалити</p>
+            </td>
+        </div>
+
+    </table>
+
+</div>

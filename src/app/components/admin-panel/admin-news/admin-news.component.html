@@ -1,0 +1,71 @@
+<div class="wrap">
+
+    <input class="add" type="button" value= "{{!addCheck ? 'Створити новину' : 'Відміна'}}"(click)="addCheckToggle()" >
+
+    <div class="actionForm" *ngIf="addCheck">
+
+        <form [formGroup]="newsForm">
+            <div class="top">
+                <input formControlName = "header" type="text" placeholder="*Заголовок">
+                <textarea formControlName = "text" placeholder="*Основний текст" id="" cols="30" rows="10"></textarea>
+            </div>
+
+
+            <div class="bottom">
+                <div>
+                    <label for="file">
+                        {{ !fileUploaded ? 'Прикріпити файл' : 'Файл прикріплено' }}
+                        <p>до 3 Мб | png / jpg / svg</p>
+                    </label>
+                    <input (change)="upload($event)" formControlName = "file" id="file" type="file">
+                    <input type="text" formControlName = "fileHiden">
+
+                </div>
+                <button (click)="createNews()" [disabled]="newsForm.invalid">
+                    <span>{{ !editStatus ? 'НАДІСЛАТИ ➤' : 'ЗБЕРЕГТИ ➤'}}</span>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <table *ngIf="!addCheck" >
+
+        <div>
+            <th>
+                <p>Заголовок</p>
+            </th>
+            <th>
+                <p>Картинка</p>
+            </th>
+            <th>
+                <p>Опис</p>
+            </th>
+           
+            <th>
+                <p>Дії</p>
+            </th>
+
+        </div>
+
+        <div *ngFor="let news of newsArray">
+            <td>
+                <p>{{ news.header }}</p>
+            </td>
+            <td>
+                <img [src]="news.file">
+            </td>
+            <td>
+                <p>{{ news.text }}</p>
+            </td>
+        
+            <td class="buttons">
+                <p (click)="editNews(news)">Редагувати</p>
+                <p (click)=" deleteNews(news.id)">Видалити</p>
+            </td>
+        </div>
+
+    </table>
+
+</div>

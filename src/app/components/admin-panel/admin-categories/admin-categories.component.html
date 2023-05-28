@@ -1,0 +1,70 @@
+<div class="wrap">
+
+    <input class="add" type="button" value= "{{!addCheck ? 'Створити категорію' : 'Відміна'}}"(click)="addCheckToggle()" >
+
+    <div class="actionForm" *ngIf="addCheck">
+
+        <form>
+            <div class="top">
+                <input type="text" placeholder="*Назва">
+                <input type="text" placeholder="*Шлях">
+            </div>
+
+
+            <div class="bottom">
+                <div>
+                    <label for="file">
+                        Прикріпити фото
+                        <p>до 3 Мб | png / jpg / svg</p>
+                    </label>
+                    <input id="file" type="file">
+
+                </div>
+                <button>
+                    <span>НАДІСЛАТИ ➤</span>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <table *ngIf="!addCheck" >
+
+        <div>
+            <th>
+                <p>Назва</p>
+            </th>
+            <th>
+                <p>Картинка</p>
+            </th>
+            <th>
+                <p>Шлях</p>
+            </th>
+           
+            <th>
+                <p>Дії</p>
+            </th>
+
+        </div>
+
+        <div>
+            <td>
+                <p>Title</p>
+            </td>
+            <td>
+                Pic
+            </td>
+            <td>
+                <p>MainText</p>
+            </td>
+        
+            <td class="buttons">
+                <p>Редагувати</p>
+                <p>Видалити</p>
+            </td>
+        </div>
+
+    </table>
+
+</div>

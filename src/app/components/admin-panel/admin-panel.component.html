@@ -1,0 +1,12 @@
+<div class="wrap">
+    <div class="router-links">
+        <input [routerLink]="[ 'actions' ]" routerLinkActive="route-active" type="button" value="Акції">
+        <input [routerLink]="[ 'categories' ]" routerLinkActive="route-active" type="button" value="Категорії">
+        <input [routerLink]="[ 'feedback' ]" routerLinkActive="route-active" type="button" value="Відгуки/Вакансії">
+        <input [routerLink]="[ 'news' ]" routerLinkActive="route-active" type="button" value="Новини">
+        <input [routerLink]="[ 'products' ]" routerLinkActive="route-active" type="button" value="Продукти">
+    </div>
+
+    <router-outlet></router-outlet>
+    
+</div>

@@ -165,12 +165,13 @@
                     }
     
                     button {
-                        @include size(175px, 55px);
                         @include rounded;
+                        height: 55px;
                         border: none;
                         background-color: $secondary-color;
                         color: white;
                         font-weight: bold;
+                        padding: 10px;
     
                         transition-duration: 500ms;
     
