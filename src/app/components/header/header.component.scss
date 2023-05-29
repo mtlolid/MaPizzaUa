@@ -86,19 +86,49 @@
     background-color: $main-color;
     border-radius: 20px;
     padding-left: 10px;
-    padding-right: 10px;   
-    margin-bottom: 30px;
+    padding-right: 10px;  
+    margin-bottom: 20px; 
 
     .logo {
         height: 55px;
     }
 
     .categories {
-        @include flex(row, space-between, center, nowrap, 0);
+        @include flex(row, space-between, center, nowrap, 15px);
+        height: 100%;
 
         .category {
+            padding-top: 15px;
+            position: relative;
+            height: 100%;
             min-width: 200px;
             text-align: center;
+
+            &:hover::after{
+                transform: scaleX(1);
+            }
+
+            &:hover{
+                cursor: pointer;
+            }
+
+            &::after{
+                @include size(200px, 4px);
+                @include rounded;
+                transform: scaleX(0);
+
+                transition-duration: .5s;
+
+                content: '';
+
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                border-top: 4px solid $text-green;
+
+            }
+
+            
         }
     }
 

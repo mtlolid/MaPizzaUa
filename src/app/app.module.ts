@@ -26,9 +26,17 @@ import { AdminProductsComponent } from './components/admin-panel/admin-products/
 import { AdminFeedbackComponent } from './components/admin-panel/admin-feedback/admin-feedback.component';
 import { ActionInfoComponent } from './pages/info-pages/actions/action-info/action-info.component';
 
+import { MainComponent } from './pages/main-pages/main/main.component';
+import { PizzaComponent } from './pages/main-pages/pizza/pizza.component';
+import { SaladsComponent } from './pages/main-pages/salads/salads.component';
+import { DessertsComponent } from './pages/main-pages/desserts/desserts.component';
+import { DrinksComponent } from './pages/main-pages/drinks/drinks.component';
+import { NewsInfoComponent } from './pages/info-pages/news/news-info/news-info.component';
+
 // ---- Потім в шаред модуль
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -36,12 +44,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MainComponent } from './pages/main-pages/main/main.component';
-import { PizzaComponent } from './pages/main-pages/pizza/pizza.component';
-import { SaladsComponent } from './pages/main-pages/salads/salads.component';
-import { DessertsComponent } from './pages/main-pages/desserts/desserts.component';
-import { DrinksComponent } from './pages/main-pages/drinks/drinks.component';
-import { NewsInfoComponent } from './pages/info-pages/news/news-info/news-info.component';
+
+
 
 
 
@@ -86,7 +90,8 @@ import { NewsInfoComponent } from './pages/info-pages/news/news-info/news-info.c
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

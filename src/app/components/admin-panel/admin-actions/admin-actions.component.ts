@@ -87,7 +87,6 @@ export class AdminActionsComponent {
       this.actionsService.updateFirebase(action, this.curentEditId).then(
         () => {
           this.getActions()
-          this.getActions()
           this.actionPosted = true;
         }
       )

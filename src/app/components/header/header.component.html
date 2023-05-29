@@ -34,14 +34,15 @@
 </div>
 
 <div class="wrap wrap-bottom">
-    <img 
+    <img [routerLink]="[ '' ]"
     src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Flogo-pizza-red.svg?alt=media&token=37b6e28b-b442-4fd0-8d39-8f7f073f1784" 
     class="logo">
+
     <div class="categories">
-        <div class="category">test</div>
-        <div class="category">test</div>
-        <div class="category">test</div>
-        <div class="category">test</div>
+        <div class="category" *ngFor="let category of categoriesArray" [routerLink]="[ category.path ]" routerLinkActive="category-active">
+            <img [src]="category.file">
+            <p>{{ category.name }}</p>
+        </div>
     </div>
     <div class="order">
         <div class="basket">

@@ -1,1 +1,132 @@
-<p>admin-products works!</p>
+<div class="wrap">
+
+    <input class="add" type="button" value="{{!addCheck ? 'Додати продукт' : 'Відміна'}}" (click)="addCheckToggle()">
+
+    <div class="actionForm" *ngIf="addCheck">
+
+        <form [formGroup]="productsForm">
+            <div class="top">
+                <input formControlName="name" type="text" placeholder="*Назва">
+
+                <div class="two">
+
+                    <div class="one">
+                        <label for="select">*Категорія</label>
+                        <select id="select" formControlName="category" (click)="categoryChange()">
+                            <option value="null" selected [disabled]="categoryOpen">Виберіть</option>
+                            <option value="{{ category.path }}" *ngFor="let category of categoriesArray">{{
+                                category.name }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="one">
+
+                        <label for="select">*Під-категорія</label>
+                        <mat-select id="select" formControlName="subCategory" multiple>
+                            <mat-option *ngFor="let subCategory of subCategoriesArray"
+                                [value]="subCategory[1]">{{subCategory[0]}}</mat-option>
+                        </mat-select>
+
+                    </div>
+
+                </div>
+
+                <div class="two">
+
+                    <div class="one">
+                        <input type="text" formControlName="mass" placeholder="*Маса">
+                    </div>
+
+                    <div class="one">
+                        <input type="text" formControlName="price" placeholder="*Ціна">
+                    </div>
+
+                </div>
+
+                <textarea formControlName="text" placeholder="*Опис" id="" cols="30" rows="10"></textarea>
+            </div>
+
+
+            <div class="bottom">
+                <div>
+                    <label for="file">
+                        {{ !fileUploaded ? 'Прикріпити файл' : 'Файл прикріплено' }}
+                        <p>до 3 Мб | png / jpg / svg</p>
+                    </label>
+                    <input (change)="upload($event)" formControlName="file" id="file" type="file">
+                    <input type="text" formControlName="fileHiden">
+
+                </div>
+                <button (click)="createProduct()" [disabled]="productsForm.invalid">
+                    <span>{{ !editStatus ? 'НАДІСЛАТИ ➤' : 'ЗБЕРЕГТИ ➤'}}</span>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <table *ngIf="!addCheck">
+
+        <div>
+            <th>
+                <p>Назва</p>
+            </th>
+            <th>
+                <p>Картинка</p>
+            </th>
+            <th>
+                <p>Опис</p>
+            </th>
+            <th>
+                <p>Категорія</p>
+            </th>
+            <th>
+                <p>Під-категорія</p>
+            </th>
+            <th>
+                <p>Вага</p>
+            </th>
+            <th>
+                <p>Ціна</p>
+            </th>
+
+            <th>
+                <p>Дії</p>
+            </th>
+
+        </div>
+
+        <div *ngFor="let product of productsArray">
+            <td>
+                <p>{{ product.name }}</p>
+            </td>
+            <td>
+                <img [src]="product.file">
+            </td>
+            <td>
+                <p>{{ product.text }}</p>
+            </td>
+            <td>
+                <p>{{ product.category }}</p>
+            </td>
+            <td>
+                <p>{{ product.subCategory }}</p>
+            </td>
+            <td>
+                <p>{{ product.mass }}</p>
+            </td>
+            <td>
+                <p>{{ product.price }}</p>
+            </td>
+
+            <td class="buttons">
+                <p (click)="editProduct(product)">Редагувати</p>
+                <p (click)="deleteProduct(product.id)">Видалити</p>
+            </td>
+        </div>
+
+    </table>
+
+</div>

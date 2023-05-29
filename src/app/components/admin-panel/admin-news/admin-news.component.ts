@@ -59,7 +59,7 @@ export class AdminNewsComponent {
     )
   };
 
-  // Створення і редагування акцій
+  // Створення і редагування
 
   createNews(): void {
     if (!this.editStatus) {
@@ -123,7 +123,7 @@ export class AdminNewsComponent {
 
   upload(event: any): void {
     const file = event.target.files[0];
-    this.filesService.uploadFile('news/newsImages', file.name, file)
+    this.filesService.uploadFile('images/newsImages', file.name, file)
       .then(data => {
         this.newsForm.patchValue({
           fileHiden: data

@@ -4,24 +4,25 @@
 
     <div class="actionForm" *ngIf="addCheck">
 
-        <form>
+        <form [formGroup]="categoriesForm">
             <div class="top">
-                <input type="text" placeholder="*Назва">
-                <input type="text" placeholder="*Шлях">
+                <input formControlName = "name" type="text" placeholder="*Назва">
+                <input formControlName = "path" type="text" placeholder="*Шлях">
             </div>
 
 
             <div class="bottom">
                 <div>
                     <label for="file">
-                        Прикріпити фото
+                        {{ !fileUploaded ? 'Прикріпити файл' : 'Файл прикріплено' }}
                         <p>до 3 Мб | png / jpg / svg</p>
                     </label>
-                    <input id="file" type="file">
+                    <input (change)="upload($event)" formControlName = "file" id="file" type="file">
+                    <input type="text" formControlName = "fileHiden">
 
                 </div>
-                <button>
-                    <span>НАДІСЛАТИ ➤</span>
+                <button (click)="createCategory()" [disabled]="categoriesForm.invalid">
+                    <span>{{ !editStatus ? 'НАДІСЛАТИ ➤' : 'ЗБЕРЕГТИ ➤'}}</span>
                 </button>
             </div>
 
@@ -48,20 +49,20 @@
 
         </div>
 
-        <div>
+        <div *ngFor="let category of categoriesArray">
             <td>
-                <p>Title</p>
+                <p>{{ category.name }}</p>
             </td>
             <td>
-                Pic
+                <img [src]="category.file">
             </td>
             <td>
-                <p>MainText</p>
+                <p>{{ category.path }}</p>
             </td>
         
             <td class="buttons">
-                <p>Редагувати</p>
-                <p>Видалити</p>
+                <p (click)="editCategories(category)">Редагувати</p>
+                <p (click)=" deleteCategories(category.id)">Видалити</p>
             </td>
         </div>
 

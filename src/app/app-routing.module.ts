@@ -22,8 +22,19 @@ import { AdminFeedbackComponent } from './components/admin-panel/admin-feedback/
 import { ActionInfoComponent } from './pages/info-pages/actions/action-info/action-info.component';
 import { NewsInfoComponent } from './pages/info-pages/news/news-info/news-info.component';
 
+import { MainComponent } from './pages/main-pages/main/main.component';
+import { PizzaComponent } from './pages/main-pages/pizza/pizza.component';
+import { SaladsComponent } from './pages/main-pages/salads/salads.component';
+import { DessertsComponent } from './pages/main-pages/desserts/desserts.component';
+import { DrinksComponent } from './pages/main-pages/drinks/drinks.component';
+
 
 const routes: Routes = [
+  { path: '', component: MainComponent },
+  { path: 'pizza', component: PizzaComponent },
+  { path: 'salads', component: SaladsComponent },
+  { path: 'desserts', component: DessertsComponent },
+  { path: 'drinks', component: DrinksComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'career', component: CareerComponent },
