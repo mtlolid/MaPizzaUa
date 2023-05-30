@@ -1,0 +1,38 @@
+<div class="wrap">
+    <img [src]="currentProduct['file']">
+
+    <div class="main">
+
+        <div class="top">
+            <span class="price">{{ currentProduct['price'] }} грн</span>/
+            <span class="mass">{{ currentProduct['mass'] }} г</span>
+        </div>
+
+        <div class="middle">
+            <h2>{{ currentProduct['name'] }}</h2>
+            <p>{{ currentProduct['text'] }}</p>
+        </div>
+
+        <div class="bottom">
+
+            <div class="bottom_container">
+
+                <div class="counter-wrap">
+                    <label>Кількість:</label>
+                    <div class="counter">
+                        <input type="button" value="–" (click)="productCount(currentProduct, false)">
+                        <input type="text" [value]="currentProduct.count" disabled>
+                        <input type="button" value="+" (click)="productCount(currentProduct, true)">
+                    </div>
+                </div>
+
+
+                <span>{{ currentProduct['count'] * currentProduct['price'] }} грн</span>
+            </div>
+
+
+
+            <input type="button" value="ЗАМОВИТИ" (click)="addToBasket(currentProduct)">
+        </div>
+    </div>
+</div>

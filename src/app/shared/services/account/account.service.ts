@@ -1,0 +1,14 @@
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AccountService {
+
+  public isUserLogin$ = new Subject<boolean>();
+  public isLogined = false;
+
+  constructor() { }
+
+}

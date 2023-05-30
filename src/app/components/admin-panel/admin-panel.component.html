@@ -1,4 +1,7 @@
 <div class="wrap">
+    
+    <input class="exit" type="button" value="ВИЙТИ" (click)="logout()">
+
     <div class="router-links">
         <input [routerLink]="[ 'actions' ]" routerLinkActive="route-active" type="button" value="Акції">
         <input [routerLink]="[ 'categories' ]" routerLinkActive="route-active" type="button" value="Категорії">
@@ -8,5 +11,5 @@
     </div>
 
     <router-outlet></router-outlet>
-    
+
 </div>

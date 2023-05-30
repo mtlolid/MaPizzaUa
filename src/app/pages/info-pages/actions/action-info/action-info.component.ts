@@ -26,7 +26,6 @@ export class ActionInfoComponent {
     this.actionsService.getOneFirebase(id).subscribe(data => {
       this.currentAction = data;
     })
-
   }
 
 }

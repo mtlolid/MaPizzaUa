@@ -1,5 +1,8 @@
 @import './app/shared/styles/fonts/font';
 
+// Tostr
+@import 'ngx-toastr/toastr';
+
 *{
     font-family: 'Montserrat';
     margin: 0;
@@ -33,4 +36,6 @@
     border-radius: 10px;
     justify-self: center;
 }
+
+
 

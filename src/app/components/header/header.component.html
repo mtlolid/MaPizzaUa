@@ -1,4 +1,5 @@
 <div class="wrap wrap-top">
+
     <div class="info">
         <b class="red">+38 097 18 306 18</b>
         <p>нд-чт 09:30 - 21:00</p>
@@ -26,11 +27,19 @@
         </div>
     </div>
 
-    <button (click)="openDialog('100ms', '500ms')">
+    <button (click)="openDialog('100ms', '500ms')" *ngIf="!isLogined">
         <img
             src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ficons8-user-64.png?alt=media&token=f9a410b9-6957-41dd-83a7-f99849a42516">
         <span>Вхід</span>
     </button>
+
+    <button *ngIf="isLogined" [routerLink]="[loginUrl]">
+        <img
+            src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ficons8-user-64.png?alt=media&token=f9a410b9-6957-41dd-83a7-f99849a42516">
+        <span>В кабінет</span>
+    </button>
+
+
 </div>
 
 <div class="wrap wrap-bottom">
@@ -44,14 +53,14 @@
             <p>{{ category.name }}</p>
         </div>
     </div>
-    <div class="order">
+    <div class="order" (click)="openBasket('100ms', '500ms')">
         <div class="basket">
             <img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2F4544811-basket-business-comerce-delivery-shop_121412.png?alt=media&token=7be562d1-bad9-4a10-a3b6-fff09805eba8">
             <div class="basket-count">
-                <p>0</p>
+                <p> {{ totalProducts }}</p>
             </div>
         </div>
 
-        <span class="summ">0 грн</span>
+        <span class="summ">{{ totalPrice }} грн</span>
     </div>
 </div>

@@ -136,6 +136,10 @@
         @include flex(row, flex-start, center, nowrap, 0);
         min-width: 100px;
 
+        &:hover{
+            cursor: pointer;
+        }
+
         .basket {
             position: relative;
 

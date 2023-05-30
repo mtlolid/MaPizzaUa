@@ -26,7 +26,7 @@ export class ProductsService {
   };
 
   getAllFirebaseByCategory(category: string) {
-    return collectionData(query(this.productsCollection, where("category", "==", category)));
+    return collectionData(query(this.productsCollection, where("category", "==", category)), { idField: 'id' });
   };
 
   createFirebase(product: IProductsPost) {

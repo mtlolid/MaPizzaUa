@@ -6,11 +6,11 @@
     </div>
 
     <ng-container *ngIf="!registerCheck">
-        <form>
-            <input type="email" placeholder="*Введіть емейл">
-            <input type="text" placeholder="*Введіть пароль">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <input formControlName="email" type="email" placeholder="*Введіть емейл">
+            <input formControlName="password" type="password" placeholder="*Введіть пароль">
 
-            <input type="button" value="Увійти ➤">
+            <input [disabled]="loginForm.invalid" type="submit" value="Увійти ➤">
         </form>
 
         <div class="register">
@@ -19,27 +19,28 @@
     </ng-container>
 
     <ng-container *ngIf="registerCheck">
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
             <div class="two">
-                <input type="email" placeholder="*Ваше ім'я">
-                <input type="text" placeholder="*Ваше прізвище">
+                <input formControlName="firstName" type="text" placeholder="*Ваше ім'я">
+                <input formControlName="lastName" type="text" placeholder="*Ваше прізвище">
             </div>
             <div class="date-wrap">
-                <input type="date">
-                <p>Якщо це поле не буде заповнено, то ви не зможете отримувати додаткові бонуси до Дня Вашого народження
-                </p>
+                <input formControlName="birthDate" type="date">
+                <p>Якщо це поле не буде заповнено, то ви не зможете отримувати додаткові бонуси до Дня Вашого народження</p>
             </div>
-            <input type="email" placeholder="*Введіть емейл">
-            <input type="text" placeholder="*Введіть телефон">
-            <input type="text" placeholder="*Пароль">
-            <input type="text" placeholder="*Повторіть пароль">
+            <input formControlName="email" type="email" placeholder="*Введіть емейл">
+            <input formControlName="phone" type="text" placeholder="*Введіть телефон">
+            <input (input)="checkConfirmedPassword()" formControlName="password" type="password" placeholder="*Пароль">
+            <input (input)="checkConfirmedPassword()" formControlName="passwordCheck" type="password"
+                placeholder="*Повторіть пароль">
+            <p *ngIf="checkVisibilityError('passwordCheck', 'matchError')">Повторіть пароль</p>
 
             <div class="checkbox-wrap">
-                <input type="checkbox">
+                <input formControlName="check" type="checkbox">
                 <p>Я погоджуюсь з <a (click)="closeDialog()" [routerLink]="[ '/privacy-policy' ]">Правилами користування</a></p>
             </div>
 
-            <input type="button" value="Зареєструватись ➤">
+            <input [disabled]="registerForm.invalid" type="submit" value="Зареєструватись ➤">
         </form>
 
         <div class="register">

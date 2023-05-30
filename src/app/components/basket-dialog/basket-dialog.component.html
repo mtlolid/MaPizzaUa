@@ -1,0 +1,49 @@
+<div class="wrap">
+
+    <div class="top">
+        <button (click)="closeDialog()">✖</button>
+        <div>
+            <h2>Кошик</h2>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div class="products" *ngIf="basket.length != 0">
+            <div class="product" *ngFor="let product of basket" >
+                <img [src]="product.file">
+
+                <div class="text">
+                    <div class="text__top">
+                        <h2>{{ product.name }}</h2>
+                        <input type="button" value="✖" (click)="productDelete(product)">
+                    </div>
+                    <div class="text__bottom">
+                        <p>{{ product.price }} грн</p>
+
+                        <div class="counter">
+                            <input type="button" value="–" (click)="productCount(product, false)">
+                            <input type="text" [value]="product.count" disabled>
+                            <input type="button" value="+" (click)="productCount(product, true)">
+                        </div>
+
+                        <p>{{ product.price * product.count }} грн</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="empty" *ngIf="basket.length == 0">
+            <p>Кошик порожній</p>
+            <input type="button" value="ПЕРЕЙТИ ДО КАТАЛОГУ" [routerLink]="['']" (click)="closeDialog()" >
+        </div>
+
+    </div>
+
+    <div class="bottom">
+        <p>Сума: {{ total }} грн</p>
+        <input type="button" value="ОФОРМИТИ ЗАМОВЛЕННЯ">
+    </div>
+
+</div>

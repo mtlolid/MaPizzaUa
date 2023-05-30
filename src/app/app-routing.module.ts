@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 // ------------ Потім переробити на багатомодульність-------
 
@@ -13,28 +13,39 @@ import { ActionsComponent } from './pages/info-pages/actions/actions.component';
 import { PrivacyPolicyComponent } from './pages/info-pages/privacy-policy/privacy-policy.component';
 import { DogovirPublichnoyiOfertyComponent } from './pages/info-pages/dogovir-publichnoyi-oferty/dogovir-publichnoyi-oferty.component';
 
-import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
-import { AdminActionsComponent } from './components/admin-panel/admin-actions/admin-actions.component';
-import { AdminCategoriesComponent } from './components/admin-panel/admin-categories/admin-categories.component';
-import { AdminNewsComponent } from './components/admin-panel/admin-news/admin-news.component';
-import { AdminProductsComponent } from './components/admin-panel/admin-products/admin-products.component';
-import { AdminFeedbackComponent } from './components/admin-panel/admin-feedback/admin-feedback.component';
 import { ActionInfoComponent } from './pages/info-pages/actions/action-info/action-info.component';
 import { NewsInfoComponent } from './pages/info-pages/news/news-info/news-info.component';
 
-import { MainComponent } from './pages/main-pages/main/main.component';
-import { PizzaComponent } from './pages/main-pages/pizza/pizza.component';
-import { SaladsComponent } from './pages/main-pages/salads/salads.component';
-import { DessertsComponent } from './pages/main-pages/desserts/desserts.component';
-import { DrinksComponent } from './pages/main-pages/drinks/drinks.component';
-
+import { UserCabinetComponent } from './components/user-cabinet/user-cabinet.component';
+import { AdminGuard } from './shared/guards/admin/admin.guard';
+import { UserGuard } from './shared/guards/user/user.guard';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'pizza', component: PizzaComponent },
-  { path: 'salads', component: SaladsComponent },
-  { path: 'desserts', component: DessertsComponent },
-  { path: 'drinks', component: DrinksComponent },
+  {
+    path: '',
+    loadChildren: () => import('./pages/main-pages/main/main.module').then(m => m.MainModule)
+  },
+  {
+    path: 'pizza',
+    loadChildren: () => import('./pages/main-pages/products/pizza/pizza.module').then(m => m.PizzaModule)
+  },
+  {
+    path: 'salads',
+    loadChildren: () => import('./pages/main-pages/products/salads/salads.module').then(m => m.SaladsModule)
+  },
+  {
+    path: 'desserts',
+    loadChildren: () => import('./pages/main-pages/products/desserts/desserts.module').then(m => m.DessertsModule)
+  },
+  {
+    path: 'drinks',
+    loadChildren: () => import('./pages/main-pages/products/drinks/drinks.module').then(m => m.DrinksModule)
+  },
+  {
+    path: 'product/:category/:id',
+    loadChildren: () => import('./pages/main-pages/products/product-info/product-info.module').then(m => m.ProductInfoModule)
+  },
+
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'career', component: CareerComponent },
@@ -46,20 +57,24 @@ const routes: Routes = [
   { path: 'actions/:id', component: ActionInfoComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'dogovir-publichnoyi-oferty', component: DogovirPublichnoyiOfertyComponent },
+
   {
-    path: 'admin', component: AdminPanelComponent, children: [
-      { path: 'actions', component: AdminActionsComponent },
-      { path: 'categories', component: AdminCategoriesComponent },
-      { path: 'feedback', component: AdminFeedbackComponent },
-      { path: 'news', component: AdminNewsComponent },
-      { path: 'products', component: AdminProductsComponent },
-      { path: '', pathMatch: "full", component: AdminProductsComponent }
-    ]
+    path: 'admin',
+    canActivate: [AdminGuard],
+    loadChildren: () => import('./components/admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
+  },
+  {
+    path: 'user-cabinet',
+    canActivate: [UserGuard],
+    loadChildren: () => import('./components/user-cabinet/user-cabinet.module').then(m => m.UserCabinetModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

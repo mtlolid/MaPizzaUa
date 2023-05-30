@@ -1,0 +1,57 @@
+<div class="wrap">
+    <div class="info">
+        <h2>Салати від МА</h2>
+    </div>
+
+    <div class="subCategories">
+        <button (click)="subCategoryChange('all')">
+            <p>Всі</p>
+        </button>
+        <button (click)="subCategoryChange('meat')">
+            <img
+                src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fi-filter-3.svg?alt=media&token=f14579d1-3038-4ec1-abcd-b1cb75c3c22c">
+            <p>М'ясо</p>
+        </button>
+        <button (click)="subCategoryChange('fish')">
+            <img
+                src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fi-filter-2.svg?alt=media&token=67313b62-f3c8-4d79-9ec4-d66b0438efee">
+            <p>Морепродукти</p>
+        </button>
+    </div>
+
+    <div class="cardWrap">
+
+        <div class="card" [style.display]="product.display" *ngFor="let product of productsArray">
+
+            <div class="img" [ngStyle]="{'background-image': 'url(' + product.file + ')'} "
+            [routerLink]="[ '/product/'+product.category, product.id ]"></div>
+
+            <div class="text">
+
+                <div class="top-text">
+                    <h2 [routerLink]="[ '/product/'+product.category, product.id ]">{{ product.name }}</h2>
+                    <p>{{ product.text }}</p>
+                </div>
+
+                <div class="bottom-text">
+                    <span>{{ product.price * product.count }} грн</span> /
+                    <span>{{ product.mass }} г</span>
+                </div>
+
+                <div class="buttons">
+                    <div class="counter">
+                        <input type="button" value="–" (click)="productCount(product, false)">
+                        <input type="text" [value]="product.count" disabled>
+                        <input type="button" value="+" (click)="productCount(product, true)">
+                    </div>
+
+                    <input type="button" class="toBasket" value="ЗАМОВИТИ" (click)="addToBasket(product)">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

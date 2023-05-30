@@ -1,0 +1,28 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    @include flex(column, flex-start, flex-end, nowrap, 0);
+    width: 1200px;
+    margin: 0 auto;
+
+    .exit {
+        @include rounded;
+        padding: 20px 30px;
+        border: none;
+        color: white;
+        font-size: bold;
+        margin-bottom: 15px;
+        background-color: $secondary-color;
+        transition-duration: 500ms;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $text-green;
+            transform: scale(1.05);
+        }
+    }
+}
