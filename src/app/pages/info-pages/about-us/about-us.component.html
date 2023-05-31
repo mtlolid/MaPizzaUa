@@ -104,10 +104,67 @@
 
         <h2 class="bottom-header">Любов з першого шматочка</h2>
 
-        
+
 
     </div>
 
-    <app-vacancy></app-vacancy>
+    <div class="wrapVacancy">
+    <div class="left">
+      <div class="top">
+        <b>Контакти</b>
+        <div class="text">
+          <img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ficon-phone.svg?alt=media&token=839a3dea-ba12-4652-b358-171d4a96f930">
+          <span>+38 097 35 823 73</span>
+        </div>
+        <div class="text">
+          <img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ficon-mail.svg?alt=media&token=ab0ba0a6-e36e-4654-8d92-1bb6cfcd806c">
+          <span>mapizza.hr@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <b>Графік роботи</b>
+        <div class="text">
+          <img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ficon-calendar.svg?alt=media&token=ac991458-4605-476b-bf6a-3459ea2b3f37">
+          <span>щодня, 09:30 − 21:00</span>
+        </div>
+      </div>
+
+      <div class="social">
+        <div><img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fi-facebook.svg?alt=media&token=c739a099-bd2b-4d6b-9f0b-2f7ec1445208"></div>
+        <div><img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fi-instagram.svg?alt=media&token=093c6ed0-2e6f-4cf8-935d-8e6ad306eb58"></div>
+        <div><img src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fi-you-tube.svg?alt=media&token=ec7548df-2d3b-491b-ae0b-70b511eae14d"></div>
+      </div>
+
+    </div>
+    <div class="right">
+
+      <form [formGroup]="vacancyForm">
+        <h2>Не знайшли свою вакансію?</h2>
+
+        <input formControlName = "name" type="text" placeholder="*Ім'я">
+        <input formControlName = "phone" type="text" placeholder="*Телефон">
+        <input formControlName = "email" type="text" placeholder="*Email">
+        <textarea formControlName = "about" placeholder="Роскажіть щось про себе..." cols="30" rows="10"></textarea>
+
+        <div class="bottom">
+          <div>
+            <label for="file">
+              {{ !fileUploaded ? 'Прикріпити файл' : 'Файл прикріплено' }}
+              <p>до 3 Мб | pdf / doc / xls</p>
+            </label>
+            <input (change)="upload($event)" formControlName = "file" id="file" type="file">
+            <input type="text" formControlName = "fileHiden">
+
+          </div>
+          <button (click)="createVacancy()" [disabled] = "vacancyForm.invalid" >
+            <span>{{ !vacancyPosted ? 'НАДІСЛАТИ ➤' : 'НАДІСЛАНО' }}</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
 
 </div>

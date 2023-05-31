@@ -70,6 +70,23 @@
         @include rounded;
         @include size(100%, 600px);
         border: 1px solid $border-gray;
+        position: relative;
+
+        .favourite {
+            top: 10px;
+            right: 10px;
+            position: absolute;
+            height: 22px;
+            stroke: $secondary-color;
+            transition-duration: 500ms;
+
+            &:hover {
+                stroke: $text-green;
+                fill: $text-green;
+                cursor: pointer;
+            }
+
+        }
 
         .img {
             @include rounded;

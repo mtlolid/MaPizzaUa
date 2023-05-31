@@ -15,8 +15,9 @@ export class UserCabinetComponent {
   ){}
 
   logout(): void{
+    window.location.reload();
     this.router.navigate(['/']);
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
     this.accountService.isUserLogin$.next(true);
   }
 

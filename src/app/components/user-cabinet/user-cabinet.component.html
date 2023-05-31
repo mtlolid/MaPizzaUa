@@ -1,3 +1,11 @@
 <div class="wrap">
     <input class="exit" type="button" value="ВИЙТИ" (click)="logout()">
+
+    <div class="router-links">
+        <input [routerLink]="[ 'data' ]" routerLinkActive="route-active" type="button" value="Ваші данні">
+        <input [routerLink]="[ 'orders' ]" routerLinkActive="route-active" type="button" value="Ваші замовлення">
+    </div>
+
+    <router-outlet></router-outlet>
 </div>
+

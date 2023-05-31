@@ -161,6 +161,23 @@
 
     }
 
+    .phone{
+        width: 100%;
+        padding: 10px;
+        input{
+            @include rounded;
+            border: 1px solid $border-gray;
+            padding: 20px;
+            height: 40px;
+            width: 50%;
+            margin-right: 10px;
+        }
+
+        span{
+            color: $text-gray;
+        }
+    }
+
     .bottom {
         @include size(100%, 12%);
         @include flex(row, space-between, center, nowrap, 0);

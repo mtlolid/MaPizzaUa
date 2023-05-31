@@ -8,6 +8,7 @@ import { IProductsRequest } from 'src/app/shared/interfaces/products/products.in
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { ROLE } from 'src/app/shared/constants/roles.enum';
 import { AccountService } from 'src/app/shared/services/account/account.service';
+import { FavouriteService } from 'src/app/shared/services/favourite/favourite.service';
 
 @Component({
   selector: 'app-header',
@@ -19,8 +20,11 @@ export class HeaderComponent {
   public categoriesArray!: Array<ICategoriesRequest>;
   
   public basket: Array<IProductsRequest> = [];
+  public favourites: Array<IProductsRequest> = [];
   public totalPrice = 0;
   public totalProducts = 0;
+
+  public totalFavourite = 0;
 
   public isLogined = false;
   public loginUrl = '';
@@ -29,14 +33,18 @@ export class HeaderComponent {
     public dialog: MatDialog,
     private categoriesService: CategoriesService,
     public orderService: OrderService,
-    public accountService: AccountService
+    public favouriteService: FavouriteService,
+    public accountService: AccountService,
   ) { }
 
   ngOnInit(): void {
     this.getCategories();
+
     this.loadBasket();
     this.updateBasket();
-    this.getTotalProducts();
+
+    this.loadFavourites();
+    this.updateFavourites();
 
     this.checkUserLogin();
     this.checkUpdatesUserLogin();
@@ -70,6 +78,28 @@ export class HeaderComponent {
     } else {
       this.isLogined = false;
     }
+  };
+
+  // Улюблене
+
+  loadFavourites(): void {
+    if(localStorage.length > 0 && localStorage.getItem('favourites')){
+      this.favourites = JSON.parse(localStorage.getItem('favourites') as string);
+    }
+    else{
+      this.favourites = []
+    }
+    this.getTotalFavourites();
+  };
+
+  getTotalFavourites(): void {
+    this.totalFavourite = this.favourites.length
+  };
+
+  updateFavourites(): void {
+    this.favouriteService.changeFavourite.subscribe(() => {
+      this.loadFavourites();
+    })
   };
 
   // Кошик

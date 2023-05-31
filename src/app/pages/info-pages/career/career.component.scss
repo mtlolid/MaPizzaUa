@@ -68,7 +68,7 @@
             b{
                 color: $text-main;
                 margin-left: 10px;
-                
+
             }
         }
     }
@@ -112,11 +112,11 @@
 
             .img{
                 @include rounded;
-                @include size(100%, 150px); 
+                @include size(100%, 150px);
 
                 background-size: cover;
                 background-repeat: no-repeat;
-                
+
                 border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
                 margin-bottom: 20px;
@@ -124,5 +124,154 @@
             }
         }
     }
+
+}
+
+.wrapVacancy {
+  @include rounded;
+  @include size(1200px, 85vh);
+  @include flex(row, center, center, nowrap, 0);
+
+  border: 1px solid $border-gray;
+
+  .left {
+    @include size(35%, 90%);
+    @include flex(column, center, center, nowrap, 40px);
+    border-right: 1px solid $border-gray;
+
+    .top,
+    .bottom {
+      @include flex(column, center, flex-start, nowrap, 20px);
+      width: 70%;
+      color: $text-main;
+
+      .text {
+        @include flex(row, flex-start, center, nowrap, 20px);
+        color: $text-gray;
+      }
+    }
+
+    .top {
+      border-bottom: 1px solid $border-gray;
+      padding-bottom: 30px;
+
+      .text {
+        span {
+          transition-duration: 500ms;
+
+          &:hover {
+            color: $text-green;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+  }
+
+  .right {
+    @include size(65%, 90%);
+    @include flex(row, center, center, nowrap, 0);
+
+    form {
+      @include size(95%, 95%);
+      @include flex(column, space-evenly, center, nowrap, 0);
+
+      h2 {
+        margin: 50px auto;
+        text-align: center;
+        width: 70%;
+        color: $text-main;
+        font-size: 2rem;
+        position: relative;
+
+
+        &::before {
+          content: '';
+          position: absolute;
+          @include size(80px, 50px);
+          top: -30px;
+          left: -35px;
+          background-repeat: no-repeat;
+          background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ftitle-decor.svg?alt=media&token=bf67d868-844c-49af-8ae3-4b9fc4e69e17');
+        }
+      }
+
+      input,
+      textarea {
+        @include size(80%, 55px);
+        border-radius: 8px;
+        padding: 0 10px;
+        border: 1px solid $border-gray;
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        height: 110px;
+        resize: none;
+        padding-top: 10px;
+      }
+
+      .bottom {
+        @include size(80%, 55px);
+        @include flex(row, space-between, center, nowrap, 0);
+
+        label {
+          color: $secondary-color;
+          transition-duration: 500ms;
+          position: relative;
+          margin-left: 35px;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -32px;
+            width: 30px;
+            height: 30px;
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2F266074.png?alt=media&token=3ef86eb5-764e-4701-b5ca-014390e1dce9');
+            background-size: 80%;
+            background-repeat: no-repeat;
+          }
+
+
+          p {
+            font-size: .7rem;
+            color: $text-gray;
+            margin-left: 35px;
+          }
+
+          &:hover {
+            color: $text-green;
+            cursor: pointer;
+          }
+        }
+
+        input {
+          display: none;
+        }
+
+        button {
+          @include size(175px, 55px);
+          @include rounded;
+          border: none;
+          background-color: $secondary-color;
+          color: white;
+          font-weight: bold;
+
+          transition-duration: 500ms;
+
+          &:hover {
+            background-color: $text-green;
+            cursor: pointer;
+          }
+
+        }
+
+      }
+
+    }
+  }
+
 
 }

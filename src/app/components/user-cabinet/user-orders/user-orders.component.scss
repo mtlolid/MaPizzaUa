@@ -1,0 +1,40 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+
+    table{
+        width: 100%;
+        
+        tr{
+            td, th{
+                text-align: start;
+                border-bottom: 1px solid $border-gray;
+                height: 100px;
+                margin-bottom: 40px;
+                padding: 20px;
+
+                &:nth-of-type(1){
+                    text-align: end;
+                    border-right: 1px solid $border-gray;
+                }
+                &:nth-of-type(2){
+                    overflow: auto;
+                    p{
+                        font-size: 1.2rem;
+
+                        .summ{
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+          
+        }
+    }
+}

@@ -5,7 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+
 
 const MATERIAL = [
   MatDialogModule,
@@ -28,13 +29,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule
+    ToastrModule.forRoot(),
   ],
   exports: [
     ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule
+    ToastrModule,
   ]
 })
 export class SharedModule { }

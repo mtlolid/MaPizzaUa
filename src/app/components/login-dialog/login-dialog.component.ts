@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ROLE } from 'src/app/shared/constants/roles.enum';
 import { AccountService } from 'src/app/shared/services/account/account.service';
+import { FavouriteService } from 'src/app/shared/services/favourite/favourite.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -28,6 +29,7 @@ export class LoginDialogComponent {
     private afs: Firestore,
     private router: Router,
     private accountService: AccountService,
+    private favouriteService: FavouriteService,
     private fb: FormBuilder,
     private toastr: ToastrService
   ) { }
@@ -62,6 +64,7 @@ export class LoginDialogComponent {
 
     docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
       const currentUser = { ...user, uid: credential.user.uid };
+      localStorage.setItem('favourites', JSON.stringify(user['favourites']));
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       if (user && user['role'] === ROLE.USER) {
         this.router.navigate(['/user-cabinet']);
@@ -69,6 +72,8 @@ export class LoginDialogComponent {
         this.router.navigate(['/admin']);
       }
       this.accountService.isUserLogin$.next(true);
+      window.location.reload();
+      
     }, (e) => {
       console.log('error', e);
     })

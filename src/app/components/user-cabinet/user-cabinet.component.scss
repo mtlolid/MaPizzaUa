@@ -25,4 +25,30 @@
             transform: scale(1.05);
         }
     }
+
+    .router-links{
+
+        @include flex(row, flex-end, center, nowrap, 20px);
+        width: 100%;
+
+        input{
+            @include rounded;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background-color: $main-color;
+            border: none;
+            border-bottom: 2px solid $border-gray;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: $text-main;
+            height: 50px;
+            width: 20%;
+            transition-duration: 200ms;
+
+            &:hover{
+                cursor: pointer;
+                border-width: 3px;
+            }
+        }
+    }
 }

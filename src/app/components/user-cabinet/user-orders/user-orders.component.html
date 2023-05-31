@@ -1,0 +1,14 @@
+<div class="wrap">
+    <table>
+        <tr>
+            <th>Дата</th>
+            <th>Замовлення</th>
+        </tr>
+        <tr *ngFor="let order of currentUser.orders">
+            <td>{{ order.date | date }}</td>
+            <td>
+                <p *ngFor="let product of order.products">{{ product.name }} * {{ product.count }} = <span class="summ">{{ product.count * product.price }}</span> грн</p>
+            </td>
+        </tr>
+    </table>
+</div>

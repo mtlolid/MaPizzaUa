@@ -34,8 +34,14 @@
         @include size(30px, 28px);
         position: relative;
 
-        img {
+        &_svg {
             height: 100%;
+            stroke: $text-main;
+            transition-duration: 500ms;
+
+            &:hover{
+                stroke: $text-green;
+            }
         }
 
         .favouriteCount {

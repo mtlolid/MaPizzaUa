@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import {SharedModule} from "../../shared/modules/shared.module";
 import {UserCabinetComponent} from "./user-cabinet.component";
 import {UserCabinetRoutingModule} from "./user-cabinet-routing.module";
+import { UserDataComponent } from './user-data/user-data.component';
+import { UserOrdersComponent } from './user-orders/user-orders.component';
 
 @NgModule({
   declarations: [
-    UserCabinetComponent
+    UserCabinetComponent,
+    UserDataComponent,
+    UserOrdersComponent
   ],
   imports: [
     CommonModule,

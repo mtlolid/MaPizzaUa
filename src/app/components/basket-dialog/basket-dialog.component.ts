@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { IProductsPost, IProductsRequest } from 'src/app/shared/interfaces/products/products.intefrace';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 
@@ -12,20 +14,69 @@ export class BasketDialogComponent {
 
   public total = 0;
   public basket: Array<IProductsRequest> = [];
+  public curentUser!: any
+  public phoneNumber = '';
 
   constructor(
     public dialogRef: MatDialogRef<BasketDialogComponent>,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
     this.loadBasket();
     this.updateBasket();
+    this.getCurentUser();
   }
-
 
   closeDialog(): void {
     this.dialogRef.close();
+  }
+
+  orderProducts(): void {
+    if (this.phoneNumber != '' && this.basket.length != 0) {
+      let order = {
+        phone: this.phoneNumber,
+        products: this.basket
+      }
+
+      this.phoneNumber = '';
+
+      this.orderService.createFirebase(order).then(
+        () => {
+          localStorage.removeItem('basket');
+          this.basket = [];
+          this.orderService.changeBasket.next(true);
+          this.showSuccess('Успішно')
+          window.location.reload();
+        })
+    }
+    else if (this.curentUser != null) {
+      let order = {
+        user: this.curentUser,
+        products: this.basket
+      }
+
+      this.orderService.createFirebase(order).then(
+        () => {
+          let userOrder = {
+            date: Date(),
+            products: this.basket
+          }
+
+          this.curentUser.orders.push(userOrder);
+          localStorage.setItem('currentUser', JSON.stringify(this.curentUser));
+
+          this.orderService.updateFirebase(this.curentUser.orders, this.curentUser.uid);
+
+          localStorage.removeItem('basket');
+          this.basket = [];
+          this.orderService.changeBasket.next(true);
+
+          this.showSuccess('Успішно')
+          window.location.reload();
+      })
+    }
   }
 
   loadBasket(): void {
@@ -64,5 +115,20 @@ export class BasketDialogComponent {
     localStorage.setItem('basket', JSON.stringify(this.basket));
     this.orderService.changeBasket.next(true);
   };
+
+  getCurentUser(): void {
+    if (localStorage.length > 0 && localStorage.getItem('currentUser')) {
+      this.curentUser = JSON.parse(localStorage.getItem('currentUser') as string);
+    }
+    else {
+      this.curentUser = null
+    }
+  };
+
+  showSuccess(message: string) {
+    this.toastr.success(message);
+  }
+
+
 
 }

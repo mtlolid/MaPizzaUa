@@ -18,7 +18,7 @@ export class ActionsService {
   getOneFirebase(id: string) {
     const categoryDocumentReference = doc(this.afs, `actions/${id}`);
     return docData(categoryDocumentReference, { idField: 'id' });
-  }
+  };
 
   getAllFirebase() {
     return collectionData(this.actionCollection, { idField: 'id' })

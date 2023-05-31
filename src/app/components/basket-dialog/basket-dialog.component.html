@@ -41,9 +41,14 @@
 
     </div>
 
+    <form class="phone" *ngIf="basket.length != 0 && curentUser == null">
+        <input [(ngModel)]="phoneNumber" name="phone" type="text" placeholder="Введіть номер телефону"><span>*Обов'язково </span>
+    </form>
+
+
     <div class="bottom">
         <p>Сума: {{ total }} грн</p>
-        <input type="button" value="ОФОРМИТИ ЗАМОВЛЕННЯ">
+        <input (click)="orderProducts()" type="button" value="ОФОРМИТИ ЗАМОВЛЕННЯ">
     </div>
 
 </div>
