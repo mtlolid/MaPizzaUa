@@ -10,6 +10,7 @@ import { AdminProductsComponent } from "./admin-products/admin-products.componen
 
 import { SharedModule } from "../../shared/modules/shared.module";
 import {AdminPanelRoutingModule} from "./admin-panel-routing.module";
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {AdminPanelRoutingModule} from "./admin-panel-routing.module";
     AdminCategoriesComponent,
     AdminFeedbackComponent,
     AdminNewsComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    AdminOrdersComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { IOrderPost } from 'src/app/shared/interfaces/order/order.interface';
 import { IProductsPost, IProductsRequest } from 'src/app/shared/interfaces/products/products.intefrace';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 
@@ -35,9 +36,12 @@ export class BasketDialogComponent {
 
   orderProducts(): void {
     if (this.phoneNumber != '' && this.basket.length != 0) {
-      let order = {
-        phone: this.phoneNumber,
-        products: this.basket
+
+      let order: IOrderPost = {
+        user: this.phoneNumber,
+        products: this.basket,
+        date: Date(),
+        typeOfUser: 'guest'
       }
 
       this.phoneNumber = '';
@@ -52,9 +56,11 @@ export class BasketDialogComponent {
         })
     }
     else if (this.curentUser != null) {
-      let order = {
-        user: this.curentUser,
-        products: this.basket
+      let order: IOrderPost = {
+        user: `${this.curentUser.phone} ${this.curentUser.email} `,
+        products: this.basket,
+        date: Date(),
+        typeOfUser: 'user'
       }
 
       this.orderService.createFirebase(order).then(

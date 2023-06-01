@@ -9,10 +9,35 @@
     width: 1200px;
     margin: 0 auto;
 
-    img {
-        @include rounded;
+    .favourite-wrap {
+        position: relative;
         width: 45%;
+
+        img {
+            @include rounded;
+            width: 100%;
+        }
+
+        .favourite {
+            top: 10px;
+            right: 10px;
+            position: absolute;
+            height: 22px;
+            stroke: $secondary-color;
+            transition-duration: 500ms;
+
+            &:hover {
+                stroke: $text-green;
+                fill: $text-green;
+                cursor: pointer;
+            }
+
+        }
     }
+
+
+
+
 
     .main {
         @include size(50%, 100%);
@@ -102,7 +127,7 @@
                     }
                 }
 
-                span{
+                span {
                     font-size: 1.2rem;
                     font-weight: bold;
                 }
@@ -122,7 +147,7 @@
 
                 transition-duration: 500ms;
 
-                &:hover{
+                &:hover {
                     background-color: $text-green;
                     cursor: pointer;
                 }

@@ -1,1 +1,9 @@
-<p>user-data works!</p>
+<div class="wrap">
+    <form [formGroup]="dataForm" (submit)="dataChange()">
+        <input formControlName="firstName" type="text" placeholder="Ім'я">
+        <input formControlName="lastName" type="text" placeholder="Прізвище">
+        <input formControlName="phone" type="text" placeholder="Телефон">
+        <input [disabled]="dataForm.invalid" type="submit" value="ЗБЕРЕГТИ ДАННІ">
+    </form>
+
+</div>

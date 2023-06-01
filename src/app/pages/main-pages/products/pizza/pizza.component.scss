@@ -8,6 +8,14 @@
     width: 1200px;
     margin: 0 auto;
 
+    @media screen and (width < 1200px) and (width > 551px){
+        width: 90%;
+    }
+
+    @media screen and (width < 550px) {
+        width: 95%;
+    }
+
     .info {
         @include size(100%, 120px);
         @include rounded;
@@ -17,6 +25,13 @@
         width: 100%;
         margin-bottom: 20px;
 
+        @media screen and (width < 1000px){
+            @include size(95%, 40px);
+            padding-left: 0;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+
         h2 {
             color: $text-main;
             font-size: 2rem;
@@ -24,6 +39,9 @@
 
 
             &::before {
+                @media screen and (width < 1000px) {
+                    display: none;
+                }
                 content: '';
                 position: absolute;
                 @include size(80px, 50px);
@@ -32,12 +50,22 @@
                 background-repeat: no-repeat;
                 background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ftitle-decor.svg?alt=media&token=bf67d868-844c-49af-8ae3-4b9fc4e69e17');
             }
+
+            
         }
     }
 
     .subCategories {
         @include flex(row, flex-start, flex-start, nowrap, 5px);
         margin-bottom: 15px;
+        overflow: auto;
+
+        @media screen and (width < 1000px){
+            @include size(95%, 40px);
+            padding-left: 0;
+            margin: 20px auto;
+            background-color: transparent;
+        }
 
         button {
             @include flex(row, flex-start, flex-start, nowrap, 5px);
@@ -64,6 +92,17 @@
         grid-auto-rows: 600px;
         grid-column-gap: 20px;
         grid-row-gap: 20px;
+
+        @media screen and (width < 1000px) and (width > 551px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (width < 550px) {
+            margin: 0 auto;
+            width: 95%;
+            grid-template-columns: repeat(1, 1fr);
+            grid-column-gap: 0;
+        }
     }
 
     .card {

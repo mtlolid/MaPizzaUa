@@ -8,6 +8,14 @@
     width: 1200px;
     margin: 0 auto;
 
+    @media screen and (width < 1200px) and (width > 551px){
+      width: 90%;
+    }
+
+    @media screen and (width < 550px) {
+      width: 95%;
+    }
+
     .image {
         @include size(100%, 350px);
         @include flex(row, center, flex-end, nowrap, 0);

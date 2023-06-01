@@ -13,6 +13,10 @@
     margin: 30px auto;
     background-color: $main-color;
 
+    @media screen and (width < 1200px) {
+        width: 90%;
+        display: none;
+    }
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -116,7 +120,13 @@
 
         li {
             margin-bottom: 20px;
+
+            a {
+                text-decoration: none;
+            }
         }
+
+
     }
 
     .about {
@@ -149,6 +159,12 @@
 
 .under {
     width: 1200px;
+
+    @media screen and (width < 1200px) {
+        width: 90%;
+        display: none;
+    }
+
     margin: 0 auto;
     padding-bottom: 30px;
     text-align: center;

@@ -1,0 +1,26 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';    
+
+.wrap{
+    form{
+        @include flex(column, flex-end, center, nowrap, 0);
+
+        input{
+            @include rounded;
+            @include size(500px, 50px);
+            border: 1px solid $border-gray;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        input[type = 'submit']{
+            background-color: $secondary-color;
+            color: white;
+            font-weight: bold;
+        }
+
+    }
+}

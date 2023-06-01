@@ -8,7 +8,7 @@ import { FavouriteComponent } from './pages/info-pages/favourite/favourite.compo
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/main-pages/main/main.module').then(m => m.MainModule)
+    loadChildren: () => import('./pages/main-pages/products/pizza/pizza.module').then(m => m.PizzaModule)
   },
   {
     path: 'pizza',

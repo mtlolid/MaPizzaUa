@@ -1,0 +1,40 @@
+<div class="wrap">
+
+    <table>
+
+        <div>
+            <th>
+                <p>Дата</p>
+            </th>
+            <th>
+                <p>Данні</p>
+            </th>
+            <th>
+                <p>Замовлення</p>
+            </th>
+            <th>
+                <p>Дії</p>
+            </th>
+
+        </div>
+
+        <div *ngFor="let order of ordersArray">
+            <td>
+                <p>{{ order.date | date }}</p>
+            </td>
+          
+            <td>
+                <p>{{ order.user }}</p>
+            </td>
+
+            <td>
+                <p *ngFor="let product of order.products">{{ product.name }} * {{ product.count }}</p>
+            </td>        
+            <td class="buttons">
+                <p (click)="deleteOrder(order.id)">Видалити</p>
+            </td>
+        </div>
+
+    </table>
+
+</div>

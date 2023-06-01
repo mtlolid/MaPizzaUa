@@ -1,0 +1,60 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    @include flex(column, flex-start, flex-start, nowrap, 0);
+    width: 100%;
+    padding: 40px 0;
+
+    table {
+        width: 100%;
+        margin: 20px 0;
+
+        div {
+            @include flex(row, space-between, center, nowrap, 0);
+            border-bottom: 1px solid $border-gray;
+            width: 100%;
+
+            th,
+            td {
+                @include flex(column, center, flex-start, nowrap, 0);
+                width: 20%;
+                height: 100%;
+
+                min-height: 100px;
+                max-height: 400px;
+                padding: 10px 10px;
+                text-align: start;
+
+                &:nth-of-type(3) {
+                    width: 30%;
+
+                }
+
+                &:last-of-type {
+                    text-align: end;
+                    width: 10%;
+                }
+            }
+
+            td {
+
+                &:last-of-type {
+
+                    p {
+                        color: $secondary-color;
+
+                        &:hover {
+                            color: $text-green;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
