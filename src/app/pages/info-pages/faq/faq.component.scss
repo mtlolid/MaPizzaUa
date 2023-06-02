@@ -8,6 +8,10 @@
     width: 1200px;
     margin: 0 auto;
 
+    @media screen and (width < 1200px) {
+        @include size(100%, auto);
+    }
+
     h2 {
         margin: 40px auto;
         width: 10%;
@@ -17,6 +21,11 @@
         position: relative;
 
         &::before {
+
+            @media screen and (width < 1200px) {
+                display: none;
+            }
+
             content: '';
             position: absolute;
             @include size(80px, 50px);
@@ -28,11 +37,20 @@
     }
 
     .bottom {
+
         @include flex(row, space-between, flex-start, nowrap, 0);
         width: 100%;
 
+        @media screen and (width < 1200px) {
+            @include flex(column, space-between, center, nowrap, 0);
+        }
+
         .left {
             width: 55%;
+
+            @media screen and (width < 1200px) {
+                width: 90%;
+            }
 
             .example-accordion {
                 display: block;
@@ -81,6 +99,10 @@
             @include size(40%, 90%);
             @include rounded;
             @include flex(row, center, center, nowrap, 0);
+
+            @media screen and (width < 1200px) {
+                width: 90%;
+            }
 
             border: 1px solid $border-gray;
             padding-top: 40px;

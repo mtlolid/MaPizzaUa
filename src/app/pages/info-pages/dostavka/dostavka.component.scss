@@ -8,6 +8,10 @@
     width: 1200px;
     margin: 0 auto;
 
+    @media screen and (width < 1200px) {
+        @include size(90%, auto);
+    }
+
     h2 {
         margin: 40px auto;
         width: 32%;
@@ -16,7 +20,17 @@
         font-size: 2rem;
         position: relative;
 
+        @media screen and (width < 1200px) {
+            width: 100%;
+            text-align: center;
+        }
+
         &::before {
+
+            @media screen and (width < 1200px) {
+                display: none;
+            }
+
             content: '';
             position: absolute;
             @include size(80px, 50px);
@@ -32,6 +46,10 @@
         font-size: 1.3rem;
         margin: 20px auto;
         width: 70%;
+
+        @media screen and (width < 1200px) {
+            width: 100%;
+        }
     }
 
     .info {
@@ -45,6 +63,13 @@
         align-items: center;
         justify-items: center;
 
+        @media screen and (width < 1200px) {
+            width: 100%;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-row-gap: 40px;
+        }
+
         .card {
             @include size(95%, 105px);
             @include flex(row, center, center, nowrap, 0);
@@ -52,6 +77,16 @@
             padding: 0 10px;
             border: 1px solid $border-gray;
             box-shadow: 19px 20px 0px 0px $main-color;
+
+
+            @media screen and (width < 1200px) {
+                width: 100%;
+                height: auto;
+                padding: 30px 20px;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-row-gap: 40px;
+            }
 
             .text {
                 @include flex(column, center, flex-start, nowrap, 0);
@@ -78,20 +113,31 @@
                 }
 
             }
-
-
         }
     }
 
-    .map{
+    .map {
         @include rounded;
         margin: 0 auto;
         @include size(1000px, 400px);
+
+        @media screen and (width < 1200px) {
+            width: 100%;
+            margin: 0 auto;
+        }
     }
 
     .header-bottom {
         width: 15%;
         margin-top: 90px;
+
+        @media screen and (width < 1200px) {
+            width: 100%;
+        }
+
+        h2{
+            text-align: center;
+        }
     }
 
     .payment {
@@ -104,17 +150,50 @@
         grid-row-gap: 30px;
         align-items: center;
         justify-items: center;
-        
-        .card{
-            padding-left: 30px;
+
+        @media screen and (width < 1200px) {
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
         }
 
-        .center{
+        .card {
+            padding-left: 30px;
+            grid-column: 1/2;
+
+            @media screen and (width > 1200px) {
+                width: 100%;
+                margin: 0 auto;
+
+                &:nth-of-type(1){
+                    grid-row: 1/2;
+                    grid-column: 1/2;
+                }
+
+                
+                &:nth-of-type(2){
+                    grid-row: 1/2;
+                    grid-column: 2/3;
+                }
+            }
+
+            @media screen and (width < 1200px) {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+
+        .center {
             width: 50%;
             grid-column: 1/3;
+
+            @media screen and (width < 1200px) {
+                width: 80%;
+                margin: 0 auto;
+            }
         }
 
-        div{
+        div {
             margin-top: 5px;
         }
     }

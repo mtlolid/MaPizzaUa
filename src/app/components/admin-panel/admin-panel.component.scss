@@ -8,6 +8,10 @@
     width: 1200px;
     margin: 0 auto;
 
+    @media screen and (width < 1200px) {
+        width: 90%;
+    }
+
     .exit{
         @include rounded;
         padding: 20px 30px;
@@ -29,6 +33,7 @@
 
         @include flex(row, space-between, center, nowrap, 20px);
         width: 100%;
+        overflow: auto;
 
         input{
             @include rounded;
@@ -41,7 +46,7 @@
             font-weight: bold;
             color: $text-main;
             height: 50px;
-            width: 20%;
+            min-width: 150px;
             transition-duration: 200ms;
 
             &:hover{

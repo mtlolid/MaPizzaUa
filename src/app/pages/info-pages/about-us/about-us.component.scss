@@ -5,141 +5,195 @@
 @import '/src/app/shared/styles/variables/text-colors';
 
 .wrap {
-    width: 1200px;
-    margin: 0 auto;
+  width: 1200px;
+  margin: 0 auto;
 
-    @media screen and (width < 1200px) and (width > 551px){
-      width: 90%;
+  @media screen and (width < 1200px) and (width > 551px) {
+    width: 90%;
+  }
+
+  @media screen and (width < 550px) {
+    width: 95%;
+  }
+
+  .image {
+    @include size(100%, 350px);
+    @include flex(row, center, flex-end, nowrap, 0);
+    @include rounded;
+
+    box-shadow: inset 0px -100px 187px 11px rgba(0, 0, 0, 0.7);
+    padding-bottom: 20px;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fbanner-img-2.jpg.webp?alt=media&token=c7e3c738-317c-4fca-a688-146eba6e14e0');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    b {
+      color: white;
+      font-size: 2rem;
+    }
+  }
+
+  .info {
+    @include size(1200px, 245px);
+    @include rounded;
+    box-shadow: 13px 13px 0px 5px $main-color;
+    padding: 35px 20px;
+    border: 1px solid gray;
+    margin: 100px 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+
+    @media screen and (width < 1200px) and (width > 551px) {
+      @include size(100%, auto);
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
     }
 
     @media screen and (width < 550px) {
-      width: 95%;
+      @include size(100%, auto);
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      row-gap: 20px;
     }
 
-    .image {
-        @include size(100%, 350px);
-        @include flex(row, center, flex-end, nowrap, 0);
-        @include rounded;
+    div {
+      @include flex(column, space-between, flex-start, nowrap, 0);
 
-        box-shadow: inset 0px -100px 187px 11px rgba(0, 0, 0, 0.7);
-        padding-bottom: 20px;
-        background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fbanner-img-2.jpg.webp?alt=media&token=c7e3c738-317c-4fca-a688-146eba6e14e0');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+      div {
+
+        p,
+        b {
+          margin-top: 10px;
+        }
+
+        p {
+          color: $text-gray;
+        }
+      }
+
+    }
+  }
+
+  .big-info {
+
+    .card {
+      @include flex(row, space-between, flex-start, nowrap, 0);
+      margin-bottom: 50px;
+
+      @media screen and (width < 1000px) {
+        @include flex(column, center, center, nowrap, 0);
+
+        &:nth-of-type(1) {
+          @include flex(column-reverse, center, center, nowrap, 0);
+        }
+      }
+
+      .text {
+        font-size: 1.3rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
 
         b {
-            color: white;
-            font-size: 2rem;
+          color: $text-main;
+          font-size: 2rem;
         }
-    }
 
-    .info {
-        @include size(1200px, 245px);
+        p {
+          color: $text-gray;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .bottom {
+        margin: 0;
+        margin-right: 30px;
+
+        @media screen and (width < 1000px){
+          margin: 0;
+        }
+      }
+
+      img {
         @include rounded;
-        box-shadow: 13px 13px 0px 5px $main-color;
-        padding: 35px 20px;
-        border: 1px solid gray;
-        margin: 100px 0;
+        width: 55%;
+        margin-left: 30px;
 
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr;
-        grid-column-gap: 20px;
-        grid-row-gap: 0px;
-
-        div {
-            @include flex(column, space-between, flex-start, nowrap, 0);
-            div {
-                p,
-                b {
-                    margin-top: 10px;
-                }
-
-                p{
-                    color: $text-gray;
-                }
-            }
-
+        @media screen and (width < 1000px) {
+          @include size(100%, auto);
+          margin: 0;
         }
+      }
+
+
+    }
+  }
+
+  .video {
+    width: 900px;
+    margin: 0 auto;
+
+    @media screen and (width < 1200px){
+      @include size(100%, auto);
     }
 
-    .big-info{
+    h2 {
+      text-align: center;
+      color: $text-main;
+      font-size: 2rem;
+      position: relative;
 
-        .card{
-            @include flex(row, space-between, flex-start, nowrap, 0);
-            margin-bottom: 50px;
+      @media screen and (width < 1200px) {
+        font-size: 1.5rem;
+      }
 
-            .text{
-                font-size: 1.3rem;
+      &::before {
+        content: '';
+        position: absolute;
+        @include size(80px, 50px);
+        top: -30px;
+        left: -25px;
+        background-repeat: no-repeat;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ftitle-decor.svg?alt=media&token=bf67d868-844c-49af-8ae3-4b9fc4e69e17');
 
-                b{
-                    color: $text-main;
-                    font-size: 2rem;
-                }
-
-                p{
-                    color: $text-gray;
-                    margin-top: 10px;
-                }
-            }
-
-            .bottom{
-                margin: 0;
-                margin-right: 30px;
-            }
-
-            img{
-                @include rounded;
-                width: 55%;
-                margin-left: 30px;
-            }
+        @media screen and (width < 1200px) {
+          display: none;
         }
+      }
     }
 
-    .video{
-        width: 900px;
-        margin: 0 auto;
+    video {
+      margin: 30px auto;
 
-        h2{
-            text-align: center;
-            color: $text-main;
-            font-size: 2rem;
-            position: relative;
-
-            &::before{
-                content: '';
-                position: absolute;
-                @include size(80px, 50px);
-                top: -30px;
-                left: -25px;
-                background-repeat: no-repeat;
-                background-image: url('https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Ftitle-decor.svg?alt=media&token=bf67d868-844c-49af-8ae3-4b9fc4e69e17');
-            }
-        }
-
-        video{
-            margin: 30px auto;
-        }
-
-        .text{
-            font-size: 1.3rem;
-            color: $text-gray;
-            p{
-                margin-bottom: 20px;
-            }
-
-            img{
-                @include rounded;
-                width: 100%;
-            }
-        }
-
-        .bottom-header{
-            margin: 150px auto;
-            width: 60%;
-        }
+      @media screen and (width < 1200px){
+        @include size(100%, auto);
+      }
     }
+
+    .text {
+      font-size: 1.3rem;
+      color: $text-gray;
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      img {
+        @include rounded;
+        width: 100%;
+      }
+    }
+
+    .bottom-header {
+      margin: 150px auto;
+      width: 60%;
+    }
+  }
 
 }
 
@@ -147,13 +201,26 @@
   @include rounded;
   @include size(1200px, 85vh);
   @include flex(row, center, center, nowrap, 0);
-
   border: 1px solid $border-gray;
+
+  @media screen and (width < 1200px){
+    @include size(100%, auto);
+    @include flex(column, center, center, nowrap, 0);
+    border: none;
+  }
 
   .left {
     @include size(35%, 90%);
     @include flex(column, center, center, nowrap, 40px);
     border-right: 1px solid $border-gray;
+
+    @media screen and (width < 1200px){
+      @include rounded;
+      @include size(100%, auto);
+      @include flex(column, space-between, center, nowrap, 40px);
+      padding-top: 10%;
+      border: 1px solid $border-gray;
+    }
 
     .top,
     .bottom {
@@ -188,6 +255,15 @@
   .right {
     @include size(65%, 90%);
     @include flex(row, center, center, nowrap, 0);
+
+    @media screen and (width < 1200px){
+      @include rounded;
+      @include size(100%, auto);
+      @include flex(column, space-between, center, nowrap, 40px);
+      margin-top: 20px;
+      padding: 20px 0;
+      border: 1px solid $border-gray;
+    }
 
     form {
       @include size(95%, 95%);
@@ -231,6 +307,11 @@
       .bottom {
         @include size(80%, 55px);
         @include flex(row, space-between, center, nowrap, 0);
+
+        @media screen and (width < 1200px){
+          @include size(100%, auto);
+          text-align: c;          
+        }
 
         label {
           color: $secondary-color;

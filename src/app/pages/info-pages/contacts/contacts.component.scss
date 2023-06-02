@@ -9,13 +9,32 @@
     @include size(1200px, 70vh);
     @include flex(row, center, center, nowrap, 0);
     margin: 0 auto;
-
     border: 1px solid $border-gray;
+
+
+    @media screen and (width < 1200px) {
+        @include flex(column, center, center, nowrap, 0);
+        width: 99%;
+        height: auto;
+        padding: 40px;
+        border: none;
+    }
+
 
     .left {
         @include size(35%, 90%);
         @include flex(column, center, center, nowrap, 40px);
         border-right: 1px solid $border-gray;
+
+        @media screen and (width < 1200px) {
+            @include flex(column, center, center, nowrap, 20px);
+            @include rounded;
+            width: 100%;
+            height: auto;
+            padding: 40px 0;
+            border: 1px solid $border-gray;
+        }
+
 
         .top,
         .bottom {
@@ -24,6 +43,11 @@
             color: $text-main;
             border-bottom: 1px solid $border-gray;
             padding-bottom: 30px;
+
+            @media screen and (width < 1200px) {
+                width: 90%;
+                margin: 0 auto;
+            }
 
             .text {
                 @include flex(row, flex-start, center, nowrap, 20px);
@@ -47,12 +71,12 @@
 
         .social {
 
-            b{
+            b {
                 color: $text-main;
             }
 
             width: 70%;
-            
+
             .social-wrap {
                 display: grid;
                 grid-template-columns: repeat(3, 60px);
@@ -68,19 +92,19 @@
                     @include flex(row, center, center, nowrap, 20px);
                     background-color: $secondary-color;
                     border-radius: 50%;
-    
+
                     &:hover {
                         animation: sizing 300ms linear 0s 1 normal forwards;
-    
+
                         @keyframes sizing {
                             0% {
                                 background-color: $secondary-color;
                             }
-    
+
                             50% {
                                 transform: scale(0.6)
                             }
-    
+
                             100% {
                                 transform: scale(1);
                                 background-color: $text-green;
@@ -88,11 +112,11 @@
                             }
                         }
                     }
-    
+
                 }
             }
 
-            
+
         }
 
     }
@@ -101,9 +125,24 @@
         @include size(65%, 90%);
         @include flex(row, center, center, nowrap, 0);
 
+
+        @media screen and (width < 1200px) {
+            @include flex(column, center, center, nowrap, 20px);
+            @include rounded;
+            width: 100%;
+            height: auto;
+            padding: 40px 0;
+            margin-top: 40px;
+            border: 1px solid $border-gray;
+        }
+
         form {
             @include size(95%, 95%);
             @include flex(column, space-evenly, center, nowrap, 0);
+
+            @media screen and (width < 1200px) {
+                @include size(100%, auto);
+            }
 
             h2 {
                 margin: 20px auto;
@@ -115,6 +154,11 @@
 
 
                 &::before {
+
+                    @media screen and (width < 1200px) {
+                        display: none;
+                    }
+
                     content: '';
                     position: absolute;
                     @include size(80px, 50px);
@@ -132,11 +176,22 @@
                 padding: 0 10px;
                 border: 1px solid $border-gray;
                 margin-bottom: 10px;
+
+                @media screen and (width < 1200px) {
+                    @include size(90%, 55px);
+                }
+
             }
 
             .two {
                 width: 80%;
                 @include flex(row, space-between, center, nowrap, 10px);
+
+
+                @media screen and (width < 1200px) {
+                    @include size(90%, auto);
+                }
+
 
                 input {
                     width: 50%;
@@ -153,11 +208,22 @@
                 @include size(80%, 55px);
                 @include flex(row, space-between, center, nowrap, 0);
 
+                @media screen and (width < 1200px) {
+                    @include size(90%, 55px);
+                }
+
                 label {
                     color: $secondary-color;
                     transition-duration: 500ms;
                     position: relative;
                     margin-left: 35px;
+
+                    @media screen and (width < 1200px) {
+                        margin-left: 30px;
+                        font-size: .7rem;
+                        text-align: left;
+                    }
+
 
                     &::before {
                         content: '';
@@ -190,6 +256,13 @@
 
                 button {
                     @include size(175px, 55px);
+
+
+                    @media screen and (width < 1200px) {
+                        @include size(40%, 55px);
+                        font-size: .7rem;
+                    }
+
                     @include rounded;
                     border: none;
                     background-color: $secondary-color;

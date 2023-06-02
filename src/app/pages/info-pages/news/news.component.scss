@@ -9,9 +9,18 @@
     width: 70%;
     margin: 0px auto;
     
+    @media screen and (width < 1000px) {
+        width: 90%;
+    }
+
     .action{
         @include size(100%, 300px);
         @include flex(row, space-between, center, nowrap, 5%);
+
+        @media screen and (width < 1000px) {
+            @include flex(column, center, center, nowrap, 0);
+            @include size(100%, auto);
+        }
         
         margin-bottom: 40px;
 
@@ -27,12 +36,20 @@
                 transform: scale(1.01);
                 cursor: pointer;
             }
+
+            @media screen and (width < 1000px) {
+                @include size(100%, 300px);
+            }
         }
 
         .text{
             @include size(50%, 100%);
             @include flex(column, space-between, flex-start, nowrap, 2%);  
             padding: 40px 0;
+
+            @media screen and (width < 1000px) {
+                @include size(100%, auto);
+            }
 
             h2{
                 color: $text-main;

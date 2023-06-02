@@ -9,6 +9,10 @@
     width: 1200px;
     margin: 0 auto;
 
+    @media screen and (width < 1200px) {
+        width: 90%;
+    }
+
     .exit {
         @include rounded;
         padding: 20px 30px;
@@ -28,7 +32,7 @@
 
     .router-links{
 
-        @include flex(row, flex-end, center, nowrap, 20px);
+        @include flex(row, flex-end, center, nowrap, 10px);
         width: 100%;
 
         input{
@@ -38,11 +42,11 @@
             background-color: $main-color;
             border: none;
             border-bottom: 2px solid $border-gray;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             color: $text-main;
             height: 50px;
-            width: 20%;
+            width: 50%;
             transition-duration: 200ms;
 
             &:hover{
