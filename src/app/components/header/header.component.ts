@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { CategoriesService } from 'src/app/shared/services/categories/categories.service';
 import { ICategoriesRequest } from 'src/app/shared/interfaces/categories/categories.interface';
@@ -9,6 +9,7 @@ import { OrderService } from 'src/app/shared/services/order/order.service';
 import { ROLE } from 'src/app/shared/constants/roles.enum';
 import { AccountService } from 'src/app/shared/services/account/account.service';
 import { FavouriteService } from 'src/app/shared/services/favourite/favourite.service';
+import { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,7 @@ import { FavouriteService } from 'src/app/shared/services/favourite/favourite.se
 export class HeaderComponent {
 
   public categoriesArray!: Array<ICategoriesRequest>;
-  
+
   public basket: Array<IProductsRequest> = [];
   public favourites: Array<IProductsRequest> = [];
   public totalPrice = 0;
@@ -28,6 +29,8 @@ export class HeaderComponent {
 
   public isLogined = false;
   public loginUrl = '';
+
+  public mobileOpen = false;
 
   constructor(
     public dialog: MatDialog,
@@ -54,7 +57,7 @@ export class HeaderComponent {
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(LoginDialogComponent, {
-      width: '560px',
+      width: 'auto',
       height: 'auto',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -83,10 +86,10 @@ export class HeaderComponent {
   // Улюблене
 
   loadFavourites(): void {
-    if(localStorage.length > 0 && localStorage.getItem('favourites')){
+    if (localStorage.length > 0 && localStorage.getItem('favourites')) {
       this.favourites = JSON.parse(localStorage.getItem('favourites') as string);
     }
-    else{
+    else {
       this.favourites = []
     }
     this.getTotalFavourites();
@@ -107,15 +110,15 @@ export class HeaderComponent {
   openBasket(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(BasketDialogComponent, {
       width: '540px',
-      height: '95%',
+      height: '90%',
       enterAnimationDuration,
       exitAnimationDuration,
-      position: {right:'20px', top: '20px'} 
+      position: { right: '20px', top: '20px' }
     });
   };
 
   loadBasket(): void {
-    if(localStorage.length > 0 && localStorage.getItem('basket')){
+    if (localStorage.length > 0 && localStorage.getItem('basket')) {
       this.basket = JSON.parse(localStorage.getItem('basket') as string);
     }
     this.getTotalPrice();
@@ -145,5 +148,29 @@ export class HeaderComponent {
       data => { this.categoriesArray = data as ICategoriesRequest[] }
     )
   };
+
+  // Мобільна версія 
+
+  openMobile(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(MobileDialogComponent, {
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      height: '88%',
+      width: '100%',
+      panelClass: 'full-screen-modal',
+      position: { bottom: '0' },
+      hasBackdrop: false,
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
+    this.mobileOpen = !this.mobileOpen;
+  };
+
+
+  closeDialog(): void {
+    this.dialog.closeAll()
+    this.mobileOpen = !this.mobileOpen;
+  }
 
 }

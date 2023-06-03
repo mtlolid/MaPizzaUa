@@ -19,10 +19,13 @@
             src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Fi-header-top.svg?alt=media&token=364990b1-2b99-42f0-984c-019a3b902a03">
         <b class="green">29 хв</b> — середній час доставки
     </p>
+
     <div class="favourite" [routerLink]="[ '/favourite' ]">
 
         <svg class="favourite_svg" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.5166 17.8416C10.2333 17.9416 9.76663 17.9416 9.48329 17.8416C7.06663 17.0166 1.66663 13.5749 1.66663 7.74159C1.66663 5.16659 3.74163 3.08325 6.29996 3.08325C7.81663 3.08325 9.15829 3.81659 9.99996 4.94992C10.8416 3.81659 12.1916 3.08325 13.7 3.08325C16.2583 3.08325 18.3333 5.16659 18.3333 7.74159C18.3333 13.5749 12.9333 17.0166 10.5166 17.8416Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path
+                d="M10.5166 17.8416C10.2333 17.9416 9.76663 17.9416 9.48329 17.8416C7.06663 17.0166 1.66663 13.5749 1.66663 7.74159C1.66663 5.16659 3.74163 3.08325 6.29996 3.08325C7.81663 3.08325 9.15829 3.81659 9.99996 4.94992C10.8416 3.81659 12.1916 3.08325 13.7 3.08325C16.2583 3.08325 18.3333 5.16659 18.3333 7.74159C18.3333 13.5749 12.9333 17.0166 10.5166 17.8416Z"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
 
         <div class="favouriteCount">
@@ -46,6 +49,87 @@
 
 </div>
 
+<div class="wrap wrap-top-mobile">
+    <img [routerLink]="[ '' ]"
+        src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Flogo-pizza-red.svg?alt=media&token=37b6e28b-b442-4fd0-8d39-8f7f073f1784"
+        class="logo">
+
+    <div class="favourite" [routerLink]="[ '/favourite' ]">
+
+        <svg class="favourite_svg" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M10.5166 17.8416C10.2333 17.9416 9.76663 17.9416 9.48329 17.8416C7.06663 17.0166 1.66663 13.5749 1.66663 7.74159C1.66663 5.16659 3.74163 3.08325 6.29996 3.08325C7.81663 3.08325 9.15829 3.81659 9.99996 4.94992C10.8416 3.81659 12.1916 3.08325 13.7 3.08325C16.2583 3.08325 18.3333 5.16659 18.3333 7.74159C18.3333 13.5749 12.9333 17.0166 10.5166 17.8416Z"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+
+        <div class="favouriteCount">
+            <p>{{ totalFavourite }}</p>
+        </div>
+
+    </div>
+
+    <button class="login" (click)="openDialog('100ms', '500ms')" *ngIf="!isLogined">
+        <svg width="25" height="30" viewBox="0 0 20 21" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M10 10.5001C12.3012 10.5001 14.1667 8.6346 14.1667 6.33341C14.1667 4.03223 12.3012 2.16675 10 2.16675C7.69885 2.16675 5.83337 4.03223 5.83337 6.33341C5.83337 8.6346 7.69885 10.5001 10 10.5001Z"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M17.1583 18.8333C17.1583 15.6083 13.95 13 10 13C6.05001 13 2.84167 15.6083 2.84167 18.8333"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
+
+    <button class="login" *ngIf="isLogined" [routerLink]="[loginUrl]">
+        <svg width="25" height="30" viewBox="0 0 20 21" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M10 10.5001C12.3012 10.5001 14.1667 8.6346 14.1667 6.33341C14.1667 4.03223 12.3012 2.16675 10 2.16675C7.69885 2.16675 5.83337 4.03223 5.83337 6.33341C5.83337 8.6346 7.69885 10.5001 10 10.5001Z"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M17.1583 18.8333C17.1583 15.6083 13.95 13 10 13C6.05001 13 2.84167 15.6083 2.84167 18.8333"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
+
+    <div class="order" (click)="openBasket('100ms', '500ms')">
+        <div class="basket">
+
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.375 9.58739V8.37489C9.375 5.56239 11.6375 2.79989 14.45 2.53739C17.8 2.21239 20.625 4.84989 20.625 8.13739V9.86239"
+                    stroke="#212721" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path
+                    d="M11.25 27.5H18.75C23.775 27.5 24.675 25.4875 24.9375 23.0375L25.875 15.5375C26.2125 12.4875 25.3375 10 20 10H10C4.66253 10 3.78753 12.4875 4.12503 15.5375L5.06253 23.0375C5.32503 25.4875 6.22503 27.5 11.25 27.5Z"
+                    stroke="#212721" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M19.3694 15H19.3806" stroke="#212721" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M10.6181 15H10.6294" stroke="#212721" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+
+            <div class="basket-count">
+                <p> {{ totalProducts }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown" (click)="openMobile('100ms', '500ms')" *ngIf="!mobileOpen">
+        <svg viewBox="0 0 100 80" width="40" height="20">
+            <rect width="90" height="5" rx="5"></rect>
+            <rect y="30" width="90" height="5" rx="5"></rect>
+            <rect y="60" width="90" height="5" rx="5"></rect>
+        </svg>
+    </div>
+
+    <div class="dropdown" (click)="closeDialog()" *ngIf="mobileOpen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x"
+            viewBox="0 0 16 16">
+            <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+    </div>
+
+</div>
+
 <div class="wrap wrap-bottom">
     <img [routerLink]="[ '' ]"
         src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2Flogo-pizza-red.svg?alt=media&token=37b6e28b-b442-4fd0-8d39-8f7f073f1784"
@@ -60,8 +144,20 @@
     </div>
     <div class="order" (click)="openBasket('100ms', '500ms')">
         <div class="basket">
-            <img
-                src="https://firebasestorage.googleapis.com/v0/b/mymapizza.appspot.com/o/images%2FpageImages%2F4544811-basket-business-comerce-delivery-shop_121412.png?alt=media&token=7be562d1-bad9-4a10-a3b6-fff09805eba8">
+            <svg width="35" height="35" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.375 9.58739V8.37489C9.375 5.56239 11.6375 2.79989 14.45 2.53739C17.8 2.21239 20.625 4.84989 20.625 8.13739V9.86239"
+                    stroke="#212721" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path
+                    d="M11.25 27.5H18.75C23.775 27.5 24.675 25.4875 24.9375 23.0375L25.875 15.5375C26.2125 12.4875 25.3375 10 20 10H10C4.66253 10 3.78753 12.4875 4.12503 15.5375L5.06253 23.0375C5.32503 25.4875 6.22503 27.5 11.25 27.5Z"
+                    stroke="#212721" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M19.3694 15H19.3806" stroke="#212721" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M10.6181 15H10.6294" stroke="#212721" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
             <div class="basket-count">
                 <p> {{ totalProducts }}</p>
             </div>

@@ -3,39 +3,41 @@
 // Tostr
 @import 'ngx-toastr/toastr';
 
-*{
+* {
     font-family: 'Montserrat';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.route-active{
+.route-active {
     border-bottom: 3px solid #D22730 !important;
     box-shadow: inset 0px -10px 70px -60px #D22730;
 }
 
-.category-active{
+.category-active {
 
-    &::after{
+    color: #009246;
+
+    &::after {
         transform: scaleX(1) !important;
-    
+
+        @media screen and (width < 1200px) {
+            display: none;
+        }
     }
 }
 
-.margin{
+.margin {
     color: black;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.pic{
+.pic {
     margin: 40px auto;
     width: 100%;
     height: 300px;
     border-radius: 10px;
     justify-self: center;
 }
-
-
-

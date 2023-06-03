@@ -12,11 +12,18 @@
 
     @media screen and (width < 1200px) {
         width: 90%;
-        display: none;
     }
+
+    // @media screen and (width < 1000px) {
+    //     font-size: .5rem;
+    // }
 }
 
 .wrap-top {
+
+    @media screen and (width < 1200px) {
+        display: none;
+    }
 
     .info {
         height: 65px;
@@ -24,7 +31,7 @@
         @include flex(column, center, flex-start, nowrap, 0);
     }
 
-    a{
+    a {
         text-decoration: none;
         color: $text-main;
         transition-duration: 500ms;
@@ -44,7 +51,7 @@
             stroke: $text-main;
             transition-duration: 500ms;
 
-            &:hover{
+            &:hover {
                 stroke: $text-green;
             }
         }
@@ -88,6 +95,102 @@
     }
 }
 
+.wrap-top-mobile {
+    @media screen and (width >= 1200px) {
+        display: none;
+    }
+
+    @include flex(row, space-between, center, nowrap, 15px);
+    padding: 0 10px;
+    width: 100%;
+    background-color: $main-color;
+
+    img {
+        @media screen and (width < 1200px) and (width > 800px) {
+            width: 20%;
+        }
+
+        @media screen and (width < 800px) {
+            width: 30%;
+        }
+
+        width: 25%;
+    }
+
+    .favourite {
+        @include size(30px, 28px);
+        position: relative;
+
+        &_svg {
+            height: 100%;
+            stroke: $text-main;
+            transition-duration: 500ms;
+
+            &:hover {
+                stroke: $text-green;
+            }
+        }
+
+        .favouriteCount {
+            @include size(15px, 15px);
+            @include flex(column, center, center, nowrap, 0);
+            position: absolute;
+            right: -5px;
+            top: -3px;
+            border-radius: 50%;
+            background-color: $secondary-color;
+            color: white;
+            font-size: .7rem;
+        }
+    }
+
+    .login {
+        @include flex(row, center, center, nowrap, 0);
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+        color: white;
+        transition-duration: 500ms;
+
+        img {
+            width: 20px;
+        }
+    }
+
+    .order {
+        @include flex(row, flex-start, center, nowrap, 0);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .basket {
+            position: relative;
+
+            img {
+                height: 50px;
+            }
+
+            .basket-count {
+                @include size(15px, 15px);
+                @include flex(column, center, center, nowrap, 0);
+                top: 0;
+                right: 0;
+                position: absolute;
+                border-radius: 50%;
+                background-color: $secondary-color;
+                color: white;
+                font-size: .7rem;
+            }
+        }
+    }
+
+    .dropdown{
+        margin-top: 5px;
+    }
+
+}
+
 .wrap-bottom {
     @include rounded;
     position: sticky;
@@ -97,37 +200,73 @@
     background-color: $main-color;
     border-radius: 20px;
     padding-left: 10px;
-    padding-right: 10px;  
-    margin-bottom: 20px; 
+    padding-right: 10px;
+    margin-bottom: 20px;
+
+    @media screen and (width < 1200px) {
+        border-radius: 0;
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 0;
+        width: 100%;
+        height: 40px;
+        background-color: white;
+        box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.032);
+    }
 
     .logo {
         height: 55px;
+
+        @media screen and (width < 1200px) {
+            display: none;
+        }
     }
 
     .categories {
         @include flex(row, space-between, center, nowrap, 15px);
         height: 100%;
 
+        @media screen and (width < 1200px) {
+            gap: 0;
+            width: 100%;
+        }
+
         .category {
             padding-top: 15px;
             position: relative;
             height: 100%;
             min-width: 200px;
-            @media screen and (width < 1200px) {
-                min-width: 10%;
-            }
-
             text-align: center;
 
-            &:hover::after{
-                transform: scaleX(1);
+            img {
+                @media screen and (width < 1200px) {
+                    display: none;
+                }
             }
 
-            &:hover{
+            @media screen and (width < 1200px) {
+                @include flex(row, center, center, nowrap, 0);
+                min-width: 0;
+                margin: 0;
+                padding: 0;
+                width: 25%;
+                height: 100%;
+                font-size: .9rem;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+
+                @media screen and (width < 1200px) {
+                    display: none;
+                }
+            }
+
+            &:hover {
                 cursor: pointer;
             }
 
-            &::after{
+            &::after {
                 @include size(200px, 4px);
                 @include rounded;
                 transform: scaleX(0);
@@ -143,7 +282,7 @@
 
             }
 
-            
+
         }
     }
 
@@ -151,7 +290,11 @@
         @include flex(row, flex-start, center, nowrap, 0);
         min-width: 100px;
 
-        &:hover{
+        @media screen and (width < 1200px) {
+            display: none;
+        }
+
+        &:hover {
             cursor: pointer;
         }
 
@@ -165,8 +308,8 @@
             .basket-count {
                 @include size(15px, 15px);
                 @include flex(column, center, center, nowrap, 0);
-                top: 5px;
-                right: 10px;
+                top: 0;
+                right: 0;
                 position: absolute;
                 border-radius: 50%;
                 background-color: $secondary-color;

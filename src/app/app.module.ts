@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 import { BasketDialogComponent } from './components/basket-dialog/basket-dialog.component';
+import { MobileDialogComponent } from './components/mobile-dialog/mobile-dialog.component';
 
 // Firebase
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -17,8 +18,6 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { FavouriteComponent } from './pages/info-pages/favourite/favourite.component';
-
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { FavouriteComponent } from './pages/info-pages/favourite/favourite.compo
     FooterComponent,
     LoginDialogComponent,
     BasketDialogComponent,
-    FavouriteComponent,
+    MobileDialogComponent,
   ],
   imports: [
     BrowserModule,

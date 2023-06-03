@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BasketDialogComponent } from './basket-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('BasketDialogComponent', () => {
   let component: BasketDialogComponent;
@@ -8,7 +9,8 @@ describe('BasketDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BasketDialogComponent ]
+      declarations: [ BasketDialogComponent ],
+      imports: [ MatDialogModule ]
     })
     .compileComponents();
 

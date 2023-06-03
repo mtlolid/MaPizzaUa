@@ -77,7 +77,8 @@ const routes: Routes = [
     loadChildren: () => import('./components/user-cabinet/user-cabinet.module').then(m => m.UserCabinetModule)
   },
   {
-    path: 'favourite', component: FavouriteComponent
+    path: 'favourite',
+    loadChildren: () => import('./pages/info-pages/favourite/favourite.module').then(m => m.FavouriteModule)
   }
 ];
 

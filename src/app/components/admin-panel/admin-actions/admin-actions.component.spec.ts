@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminActionsComponent } from './admin-actions.component';
+import { Firestore } from '@angular/fire/firestore';
 
 describe('AdminActionsComponent', () => {
   let component: AdminActionsComponent;
@@ -8,7 +9,11 @@ describe('AdminActionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminActionsComponent ]
+      declarations: [ AdminActionsComponent ],
+      providers: [
+        {provide: Storage, useValue: {}},
+        {provide: Firestore, useValue: {}},         
+      ]
     })
     .compileComponents();
 

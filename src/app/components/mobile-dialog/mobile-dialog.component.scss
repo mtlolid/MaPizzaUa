@@ -1,0 +1,42 @@
+@import '/src/app/shared/styles/mixins/size';
+@import '/src/app/shared/styles/mixins/flex';
+@import '/src/app/shared/styles/mixins/rounded';
+@import '/src/app/shared/styles/variables/page-colors';
+@import '/src/app/shared/styles/variables/text-colors';
+
+.wrap {
+    @include flex(column, flex-start, center, nowrap, 10px);
+    @include size(100%, auto);
+    padding-top: 30px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+
+    .info {
+        height: 65px;
+        @include flex(column, center, flex-start, nowrap, 10px);
+        font-size: 1.2rem;
+        margin-top: 30px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $text-main;
+        transition-duration: 500ms;
+        font-size: 1.2rem;
+
+
+        &:hover {
+            color: $text-green;
+            cursor: pointer;
+        }
+    }
+}
+
+.red {
+    color: $secondary-color;
+}
+
+.long {
+    margin-left: 2%;
+    margin-right: 2%;
+}
